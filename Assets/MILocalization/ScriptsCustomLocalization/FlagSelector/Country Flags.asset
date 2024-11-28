@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be289a2442b6a5843a40f9d01dc648de, type: 3}
+  m_Name: Country Flags
+  m_EditorClassIdentifier: 
+  flagsDetaila:
+  - LangEnumIndex: 0
+    flagImage: {fileID: 21300000, guid: dbc0eb2ba2ec9c045b9c8bc9d7115510, type: 3}
+    language: English
+    englishLanguage: English
+  - LangEnumIndex: 1
+    flagImage: {fileID: 21300000, guid: c88d2fa0f2ec46e469d70f57e54504ae, type: 3}
+    language: "Fran\xE7ais"
+    englishLanguage: French
+  - LangEnumIndex: 2
+    flagImage: {fileID: 21300000, guid: e62708637b246f449b3c142a69fa3a01, type: 3}
+    language: "\u0420\u0443\u0441\u0441\u043A\u0438\u0439"
+    englishLanguage: Russian
+  - LangEnumIndex: 3
+    flagImage: {fileID: 21300000, guid: f2670bf679a26d94eb9e050158473b63, type: 3}
+    language: Nederlands
+    englishLanguage: Dutch
+  - LangEnumIndex: 4
+    flagImage: {fileID: 21300000, guid: 46f70873bfbccc0418b18f826fcf36e0, type: 3}
+    language: Italiana
+    englishLanguage: Italian
+  - LangEnumIndex: 5
+    flagImage: {fileID: 21300000, guid: dac5c46acf925364b8e3c6da093173cf, type: 3}
+    language: "Portugu\xEAs"
+    englishLanguage: Portuguese
+  - LangEnumIndex: 6
+    flagImage: {fileID: 21300000, guid: d9338cee604896c4d8051472fac31f79, type: 3}
+    language: "Espa\xF1ola"
+    englishLanguage: Spanish
+  - LangEnumIndex: 7
+    flagImage: {fileID: 21300000, guid: 3b4e405d8219df747b0224e130276674, type: 3}
+    language: "\u65E5\u672C\u8A9E"
+    englishLanguage: Japanese
+  - LangEnumIndex: 8
+    flagImage: {fileID: 21300000, guid: 98d0d70f15d346244bc3296c4906ae31, type: 3}
+    language: "\u0E41\u0E1A\u0E1A\u0E44\u0E17\u0E22"
+    englishLanguage: Thai
+  - LangEnumIndex: 9
+    flagImage: {fileID: 21300000, guid: 6ad8649caf663f744bca860282985223, type: 3}
+    language: "\uD55C\uAD6D\uC778"
+    englishLanguage: Korean
+  - LangEnumIndex: 10
+    flagImage: {fileID: 21300000, guid: 30c1410a322d7cd4b8a9b8ad53b5f3ae, type: 3}
+    language: Filipino
+    englishLanguage: Filipino
+  - LangEnumIndex: 11
+    flagImage: {fileID: 21300000, guid: 54e70754e4adecf4babf57139ca0c593, type: 3}
+    language: "Ti\u1EBFng_Vi\u1EC7t"
+    englishLanguage: Vietnamese
+  - LangEnumIndex: 12
+    flagImage: {fileID: 21300000, guid: e40d36e4530b55440a32d0618c38b94d, type: 3}
+    language: Melayu
+    englishLanguage: Malay
+  - LangEnumIndex: 13
+    flagImage: {fileID: 21300000, guid: 3da247f845d4a034c8619784108e9af6, type: 3}
+    language: Bahasa_Indonesia
+    englishLanguage: Indonesian
+  - LangEnumIndex: 14
+    flagImage: {fileID: 21300000, guid: 255cd83769fda5f4ba58d9faa72b48ca, type: 3}
+    language: Polski
+    englishLanguage: Polish
+  - LangEnumIndex: 15
+    flagImage: {fileID: 21300000, guid: d402e6adcbd81f34d807a986b4a4416f, type: 3}
+    language: "\u7B80\u4F53\u4E2D\u6587"
+    englishLanguage: Simplified_Chinese
+  - LangEnumIndex: 16
+    flagImage: {fileID: 21300000, guid: d402e6adcbd81f34d807a986b4a4416f, type: 3}
+    language: "\u7E41\u9AD4\u4E2D\u6587"
+    englishLanguage: Traditional_Chinese
+  - LangEnumIndex: 17
+    flagImage: {fileID: 21300000, guid: 1f40bd4645f30994e9b1fad7e1cca9e2, type: 3}
+    language: Dansk
+    englishLanguage: Danish
+  - LangEnumIndex: 18
+    flagImage: {fileID: 21300000, guid: d82fa994160dab04d8a88300a13a9e15, type: 3}
+    language: "T\xFCrk\xE7e"
+    englishLanguage: Turkish
+  - LangEnumIndex: 19
+    flagImage: {fileID: 21300000, guid: ce21418d9c63b04428957608c687760c, type: 3}
+    language: ozbek
+    englishLanguage: Uzbek
+  - LangEnumIndex: 20
+    flagImage: {fileID: 21300000, guid: 4f467310f3973684d8d43f5de1ca2125, type: 3}
+    language: Norsk
+    englishLanguage: Norwegian
+  - LangEnumIndex: 21
+    flagImage: {fileID: 21300000, guid: e3ff27437fc022f45941c65414e23cfa, type: 3}
+    language: Svenska
+    englishLanguage: Swedish
+  - LangEnumIndex: 22
+    flagImage: {fileID: 21300000, guid: 24226e92b1b291b419e349a4c6299142, type: 3}
+    language: "Rom\xE2n\u0103"
+    englishLanguage: Romanian

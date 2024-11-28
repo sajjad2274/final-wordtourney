@@ -1,0 +1,105 @@
+﻿using UnityEngine;
+public class Enums : MonoBehaviour
+{
+    //public enum Languages
+    //{
+    //    English = 0,
+    //    French = 1,
+    //    Russian = 2,
+    //    Dutch = 3,
+    //    Italian = 4,
+    //    Portuguese = 5,
+    //    Spanish = 6,
+    //    Japanese = 7,
+    //    Thai = 8,
+    //    Korean = 9,
+    //    Filipino = 10,
+    //    Vietnamese = 11,
+    //    Malay = 12,
+    //    Indonesian = 13,
+    //    Polish = 14,
+    //    Simplified_Chinese = 15,
+    //    Traditional_Chinese = 16,
+    //    Danish = 17,
+    //    Turkish = 18,
+    //    Uzbek = 19,
+    //    Norwegian = 20,
+    //    Swedish = 21,
+    //    Romanian = 22,
+
+    //}
+
+    //public enum Languages
+    //{
+    //    English = 0,
+    //    Français = 1,
+    //    Русский = 2,
+    //    Nederlands = 3,
+    //    Italiana = 4,
+    //    Português = 5,
+    //    Española = 6,
+    //    日本語 = 7,
+    //    แบบไทย = 8,
+    //    한국인 = 9,
+    //    Filipino = 10,
+    //    Tiếng_Việt = 11,
+    //    Melayu = 12,
+    //    Bahasa_Indonesia = 13,
+    //    Polski = 14,
+    //    简体中文 = 15,
+    //    繁體中文 = 16,
+    //    Dansk = 17,
+    //    Türkçe = 18,
+    //    ozbek = 19,
+    //    Norsk = 20,
+    //    Svenska = 21,
+    //    Română = 22,
+    //}
+
+    public enum Languages
+    {
+        
+        Azərbaycan = 0,
+        български = 1,
+        Portugues_do_Brasil = 2,
+        Hrvatski = 3,
+        čeština = 4,
+        Dansk = 5,
+        Nederlands = 6,
+        English = 7,
+        Filipino = 8,
+        Suomalainen = 9,
+        Français = 10,
+        Deutsch = 11,
+        Ελληνικά = 12,
+        עִברִית = 13,
+        Magyar = 14,
+        íslenskur = 15,
+        Bahasa = 16,
+        Italiana = 17,
+        日本語 = 18,
+        қазақ = 19,
+        한국인 = 20,
+        latviski = 21,
+        lietuvių = 22,
+        Melayu = 23,
+        norsk = 24,
+        Polski = 25,
+        Português = 26,
+        Română = 27,
+        Русский = 28,
+        简体中文 = 29,
+        slovenský = 30,
+        Slovenščina = 31,
+        Española = 32,
+        svenska = 33,
+        แบบไทย = 34,
+        繁體中文 = 35,
+        Türkçe = 36,
+        українська = 37,
+        ozbek = 38,
+        Tiếng_Việt = 39
+    }
+
+    public static Languages currentLanguage;
+}

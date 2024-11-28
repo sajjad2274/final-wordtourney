@@ -1,0 +1,11 @@
+﻿{
+  "title": "Package Template: get started quickly",
+  "text": "[ADD GETTING STARTED][Want to dive deeper? Take a look at our documentation:][l]",
+  "links": [
+    {
+      "text": "Open documentation",
+      "url": "Documentation.pdf",
+      "inline": false
+    }
+  ]
+}

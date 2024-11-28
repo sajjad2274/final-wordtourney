@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf04b48dedf06f1489fdc2747ee51efc, type: 3}
+  m_Name: RemSounds
+  m_EditorClassIdentifier: 
+  AudioSourcePrefab: {fileID: 5190869788588788198, guid: edb1165fe76eb4e42b2c39ea7369c51c, type: 3}
+  cashSound: {fileID: 8300000, guid: e3fbe29b0a5621c44ac155e2315c44ea, type: 3}
+  gemsSound: {fileID: 8300000, guid: 1f6bcb62a6be3cb45846a13715af5860, type: 3}
+  keysSound: {fileID: 8300000, guid: e2154766c112c17438ae972ce482b04c, type: 3}
+  levelUpSound: {fileID: 8300000, guid: de7d83f214e625841b49397599d5292f, type: 3}
+  giftOpenSound: {fileID: 0}
+  firstPlaceSound: {fileID: 8300000, guid: 55d55c24221920044b8507d6989509e4, type: 3}
+  secondPlaceSound: {fileID: 8300000, guid: 6d0d2b7f27f289d4d9e512a37761e416, type: 3}
+  thirdPlaceSound: {fileID: 8300000, guid: 2c38e1303170c3542aee7ec0792f1dc1, type: 3}

@@ -1,0 +1,268 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1911701154694990604
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8687852568099566724}
+  - component: {fileID: 4718159898227548837}
+  m_Layer: 0
+  m_Name: MainMenuhandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8687852568099566724
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911701154694990604}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4718159898227548837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911701154694990604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1137d10f922f846408125fdbe9c699c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressData: {fileID: 11400000, guid: f5086394b4c4653458321781e17770b1, type: 2}
+  vp: {fileID: 0}
+  videoFileName: wordtourneyhome.mp4
+  LoadingBg: {fileID: 0}
+  cashTxt:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  keysTxt:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  levelTxt:
+  - {fileID: 0}
+  gemsTxt:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  commonButterflyTxt: {fileID: 0}
+  goldenButterflyTxt: {fileID: 0}
+  legendaryButterflyTxt: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: 68dcbfa7d5d8b1347b1e485e752b053f, type: 2}
+  soundOffBtn: {fileID: 0}
+  soundOnBtn: {fileID: 0}
+  musicOffBtn: {fileID: 0}
+  musicOnBtn: {fileID: 0}
+  scoreElement: {fileID: 3093838473974498433, guid: b82838fd93ab204439fc74e7afa00f13, type: 3}
+  scoreboardContent: {fileID: 0}
+  noDataLeaderBoardObj: {fileID: 0}
+  scoreHighestElement: {fileID: 1262935703242607197, guid: 54c93ed16d940af46bf89225003ba34b, type: 3}
+  scoreboardHighestContent: {fileID: 0}
+  noDataHighestLeaderBoardObj: {fileID: 0}
+  usernameField: {fileID: 0}
+  uId: {fileID: 0}
+  playerLevelProgress: {fileID: 0}
+  levelFillBar: {fileID: 0}
+  playerProfilePic: {fileID: 0}
+  tournamentWonTxt: {fileID: 0}
+  tournamentLostTxt: {fileID: 0}
+  tournamentPlayedTxt: {fileID: 0}
+  emailInp: {fileID: 0}
+  countryInp: {fileID: 0}
+  genders:
+  - MALE
+  - FEMALE
+  - OTHER
+  genderDropDown: {fileID: 0}
+  currentLanguage: 10
+  allLanguages: 00000000020000000300000004000000050000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001200000013000000140000001500000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002500000026000000270000002a000000
+  lcDropown: {fileID: 0}
+  allWords: []
+  uiSpinButton:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  animatorWheelTriggers:
+  - Green
+  - Orange
+  - Red
+  - Pink
+  - BlueLight
+  - BlueDark
+  animatorWheelResultNo: 0
+  animatorWheelChances: 1e000000230000003c0000004100000050000000550000005f00000064000000
+  animatorWheel: {fileID: 0}
+  animatorWheelFees: 100
+  isSpinning: 0
+  spinRewards:
+  - rewardValue: 2
+    rewardType: key
+  - rewardValue: 100
+    rewardType: gem
+  - rewardValue: 200
+    rewardType: gem
+  - rewardValue: 4
+    rewardType: key
+  - rewardValue: 10
+    rewardType: key
+  - rewardValue: 2
+    rewardType: gem
+  spinWheelParticles: {fileID: 0}
+  spinBtnAdObj: {fileID: 0}
+  spinRewardPanel: {fileID: 0}
+  spinRewardObtainedTxt: {fileID: 0}
+  spinWheelCountTxt:
+  - {fileID: 0}
+  - {fileID: 0}
+  soundBgSimple: {fileID: 0}
+  soundBgTournamentSection: {fileID: 0}
+  soundBgGameplayFreeMode: {fileID: 0}
+  soundBgGameplayTournamentMode: {fileID: 0}
+  soundBtnOpen: {fileID: 0}
+  soundBtnClickFreeMode: {fileID: 0}
+  soundBtnClose: {fileID: 0}
+  soundCashCollect: {fileID: 0}
+  soundHammerUsed: {fileID: 0}
+  soundLampUsed: {fileID: 0}
+  soundNotHaveMoreHelpsAndGemsPrompt: {fileID: 0}
+  soundNotHaveMoreHelpsAndGemsUse: {fileID: 0}
+  soundRocketUsed: {fileID: 0}
+  soundLevelStartFreeMode: {fileID: 0}
+  soundWinFreeMode: {fileID: 0}
+  soundNormalKeySoundNotForAnimation: {fileID: 0}
+  soundMinutesBeforeTournamentStart: {fileID: 0}
+  soundNotificationNormal: {fileID: 0}
+  soundButterFlyClick: {fileID: 0}
+  soundAvatar: {fileID: 0}
+  soundClickWhenYouBuy: {fileID: 0}
+  mainPanel: {fileID: 0}
+  tournamentPanel: {fileID: 0}
+  spinPanel: {fileID: 0}
+  mainLoginPanel: {fileID: 0}
+  leaderBoardPanel: {fileID: 0}
+  tournamentListPanel: {fileID: 0}
+  storePanel: {fileID: 0}
+  payPalPanel: {fileID: 0}
+  panelOpenCloseTime: 0
+  mainLoginBtn: {fileID: 0}
+  mainLoginSelectionUI: {fileID: 0}
+  warningLogInText: {fileID: 0}
+  tournamentLock:
+  - {fileID: 0}
+  tournamentBtnsTxt:
+  - {fileID: 0}
+  - {fileID: 0}
+  tournamentsLockedPanel: {fileID: 0}
+  tournamentSignInPanel: {fileID: 0}
+  lowPlayers: {fileID: 0}
+  countryNotAllowedPanel: {fileID: 0}
+  tournamentPrefab: {fileID: 6538909840001449498, guid: 31a6d2f73dda42c4ea9046686c22925c, type: 3}
+  pID: 
+  tournamentRewardPage: {fileID: 0}
+  tournamentRewardTxt: {fileID: 0}
+  tournamentRewardNameTxt: {fileID: 0}
+  tournamentRewardImages:
+  - {fileID: 21300000, guid: 9b323ca143e4b408a89cfff047f0a78a, type: 3}
+  - {fileID: 21300000, guid: 0f67370f73bc4fd4fb38e314ad968b9c, type: 3}
+  - {fileID: 21300000, guid: 02f298549c3e80945b4b95a8e0e94420, type: 3}
+  tournamentRewardImage: {fileID: 0}
+  tournamentRewardImages2:
+  - {fileID: 21300000, guid: 026c056ec381e5e4fbac016c03a9761c, type: 3}
+  - {fileID: 21300000, guid: 00aaaafb58de47e439963363cffa56cb, type: 3}
+  - {fileID: 21300000, guid: 406b094d41617724da7536f469b2b8ab, type: 3}
+  tournamentRewardImage2: {fileID: 0}
+  tournamentRewardPrizes: []
+  tournamentTypeUnlockedSprite: {fileID: 21300000, guid: f7a53266f878d455cad745a24d4ec46e, type: 3}
+  tournamentTypes:
+  - typeName: Beginner
+    ContainerPanel: {fileID: 0}
+    tournamentContainerParent: {fileID: 0}
+    tournamentLock: {fileID: 0}
+    tournamentUnlockLevel: 10
+    tournamentImg: {fileID: 0}
+    tournamentPrefabSprite: {fileID: 21300000, guid: 1c571b0f3cdc611479353e0d95dd84e1, type: 3}
+    tournamentBadgeSprite: {fileID: 21300000, guid: 2c9633b0f0c9da5488b664626d7b5885, type: 3}
+  - typeName: Advance
+    ContainerPanel: {fileID: 0}
+    tournamentContainerParent: {fileID: 0}
+    tournamentLock: {fileID: 0}
+    tournamentUnlockLevel: 20
+    tournamentImg: {fileID: 0}
+    tournamentPrefabSprite: {fileID: 21300000, guid: e6eced49e1f8e5c4bb4e26727bbf9a55, type: 3}
+    tournamentBadgeSprite: {fileID: 21300000, guid: 2c9633b0f0c9da5488b664626d7b5885, type: 3}
+  - typeName: Difficult
+    ContainerPanel: {fileID: 0}
+    tournamentContainerParent: {fileID: 0}
+    tournamentLock: {fileID: 0}
+    tournamentUnlockLevel: 30
+    tournamentImg: {fileID: 0}
+    tournamentPrefabSprite: {fileID: 21300000, guid: 9b40218c4b2fdbc4fad05fe50410aa19, type: 3}
+    tournamentBadgeSprite: {fileID: 21300000, guid: 2c9633b0f0c9da5488b664626d7b5885, type: 3}
+  - typeName: Mythic
+    ContainerPanel: {fileID: 0}
+    tournamentContainerParent: {fileID: 0}
+    tournamentLock: {fileID: 0}
+    tournamentUnlockLevel: 40
+    tournamentImg: {fileID: 0}
+    tournamentPrefabSprite: {fileID: 21300000, guid: 2ac0dca5c2a377a438488528cbfbb29e, type: 3}
+    tournamentBadgeSprite: {fileID: 21300000, guid: 2c9633b0f0c9da5488b664626d7b5885, type: 3}
+  - typeName: Special
+    ContainerPanel: {fileID: 0}
+    tournamentContainerParent: {fileID: 0}
+    tournamentLock: {fileID: 0}
+    tournamentUnlockLevel: 50
+    tournamentImg: {fileID: 0}
+    tournamentPrefabSprite: {fileID: 21300000, guid: c5540670c37ad9b4eaebfdce85ed771c, type: 3}
+    tournamentBadgeSprite: {fileID: 21300000, guid: 2c9633b0f0c9da5488b664626d7b5885, type: 3}
+  tournamentTypesPanel: {fileID: 0}
+  trnmntHstryCntnr: {fileID: 0}
+  inProgressTrnmntHstryCntnr: {fileID: 0}
+  completedTrnmntHstryCntnr: {fileID: 0}
+  TournamentHistoryPrefab: {fileID: 7653259846253633330, guid: f8101e4f3229eb04ca497f6f830db615, type: 3}
+  toturialCanvas: {fileID: 0}
+  isSpinWheelAd: 0
+  storeAvatarPic: {fileID: 0}
+  storefreeGemsBtn: {fileID: 0}
+  PurchaseSuccessDetail: {fileID: 0}
+  PurchaseSuccessPanel: {fileID: 0}
+  payPalManager: {fileID: 0}
+  payPalAmountInputField: {fileID: 0}
+  payPalEmailInputField: {fileID: 0}
+  payPalAmountInputFieldResultDetail: {fileID: 0}
+  payPalMehtod: 1
+  payPalPaymentPanel: {fileID: 0}
+  paypalHistoryElement: {fileID: 5367451944179798330, guid: 7a66c2036add71b4c8291958fa420e71, type: 3}
+  paypalHistoryContent: {fileID: 0}
+  payoutInProgress: 0
+  stageTxt:
+  - {fileID: 0}
+  detailPanel: {fileID: 0}
+  detailPanelTxt: {fileID: 0}
+  inviteClaimBtns:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  sendInviteBtns: {fileID: 0}
+  InviteReward: 640000002c010000f4010000
+  inviteCount: {fileID: 0}
+  tournamentWaitingPanel: {fileID: 0}

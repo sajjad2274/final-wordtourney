@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d991669cd30d37c4c8e2ab4a95363015, type: 3}
+  m_Name: LevelConfig
+  m_EditorClassIdentifier: 
+  _gameName: 
+  _colorTheme: {fileID: 0}
+  _wordHintsAvailable: 0
+  _letterHintsAvailable: 0
+  _descriptionHintsAvailable: 0
+  _dictionaryAsset: {fileID: 0}
+  _completionPointTimeCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _expectedTimeCompletion: 0
+  _maxBonusTimeScore: 500
+  _scorePerWordFound: 100
+  _streakScoreIncrement: 20
+  _prioritizeLongestWordHint: 0
+  _wordVectors: []
+  _gridWidth: 0
+  _flattenedLetterLayout: []

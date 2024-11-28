@@ -1,0 +1,7 @@
+This will be used in a video, which I must send to make, 
+but if whoever makes the animations can create the explanatory video with this audio it would be great to move forward faster.
+
+This video will be used the first time the user enters the tournament section, it should also have a Skip option in case they want to skip it.
+The video should display something like the spin does and it should be in a nice frame.
+
+We must first finish all of the above, before getting here, since the tutorial will show a video of how the system works and must be viewed with the finished application.

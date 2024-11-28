@@ -1,0 +1,1 @@
+Depending on what you play in the spin, it is the corresponding animation and sound that you should use.

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "799908683200",
+    "firebase_url": "https://word-tourney-ef3b5-default-rtdb.firebaseio.com",
+    "project_id": "word-tourney-ef3b5",
+    "storage_bucket": "word-tourney-ef3b5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799908683200:android:408711438e5a5f1ba9fc25",
+        "android_client_info": {
+          "package_name": "com.wordsearch.tourneyrewards"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "799908683200-naoqhv7e5k487c6mrnhs05q05shlhhmn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANT176ndCQCJgvhUgJo4zRCU91mQ3Ho78"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "799908683200-naoqhv7e5k487c6mrnhs05q05shlhhmn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

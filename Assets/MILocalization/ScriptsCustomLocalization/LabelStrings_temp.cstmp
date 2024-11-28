@@ -1,0 +1,17 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class LabelStrings
+{
+    public enum LabelKey
+    {
+        Menu = 0,
+        Settings = 1,
+        Battle = 2,
+        Profile = 3,
+        Park = 4,
+        Shop = 5,
+        Customize = 6,
+    }
+}

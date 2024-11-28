@@ -1,0 +1,929 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d90f49da3fc3475d8fa39cba04e0789, type: 3}
+  m_Name: LanguageDatabase
+  m_EditorClassIdentifier: 
+  database:
+  - word: language
+    wordTranslation:
+    - country: 0
+      meaning: "\u0644\u063A\u0629"
+    - country: 1
+      meaning: "\u8BED\u8A00"
+    - country: 2
+      meaning: taal
+    - country: 3
+      meaning: language
+    - country: 4
+      meaning: wika
+    - country: 5
+      meaning: la langue
+    - country: 6
+      meaning: sprache
+    - country: 7
+      meaning: "\u092D\u093E\u0937\u093E"
+    - country: 8
+      meaning: bahasa
+    - country: 9
+      meaning: linguaggio
+    - country: 10
+      meaning: "\u8A00\u8A9E"
+    - country: 11
+      meaning: "l\xEDngua"
+    - country: 12
+      meaning: "\u044F\u0437\u044B\u043A"
+    - country: 13
+      meaning: idioma
+    - country: 14
+      meaning: dil
+    - country: 15
+      meaning: "\u0632\u0628\u0627\u0646"
+  - word: automatic
+    wordTranslation:
+    - country: 1
+      meaning: "\u81EA\u52A8"
+    - country: 2
+      meaning: automatisch
+    - country: 4
+      meaning: awtomatikong
+    - country: 8
+      meaning: otomatis
+    - country: 9
+      meaning: automatico
+    - country: 14
+      meaning: otomatik
+  - word: hello
+    wordTranslation:
+    - country: 0
+      meaning: "\u0645\u0631\u062D\u0628\u0627"
+    - country: 1
+      meaning: "\u4F60\u597D"
+    - country: 2
+      meaning: Hallo
+    - country: 3
+      meaning: hello
+    - country: 4
+      meaning: Kamusta
+    - country: 5
+      meaning: Bonjour
+    - country: 6
+      meaning: Hallo
+    - country: 7
+      meaning: "\u0928\u092E\u0938\u094D\u0924\u0947"
+    - country: 8
+      meaning: Halo
+    - country: 9
+      meaning: Ciao
+    - country: 10
+      meaning: "\u3053\u3093\u306B\u3061\u306F"
+    - country: 11
+      meaning: "Ol\xE1"
+    - country: 12
+      meaning: "\u0417\u0434\u0440\u0430\u0432\u0441\u0442\u0432\u0443\u0439\u0442\u0435"
+    - country: 13
+      meaning: Hola
+    - country: 14
+      meaning: Merhaba
+    - country: 15
+      meaning: "\u06C1\u06CC\u0644\u0648"
+  - word: menu
+    wordTranslation:
+    - country: 1
+      meaning: "\u83DC\u5355"
+    - country: 14
+      meaning: "Men\xFC"
+  - word: settings
+    wordTranslation:
+    - country: 0
+      meaning: "\u0625\u0639\u062F\u0627\u062F\u0627\u062A"
+    - country: 1
+      meaning: "\u8BBE\u7F6E"
+    - country: 2
+      meaning: instellingen
+    - country: 3
+      meaning: settings
+    - country: 4
+      meaning: mga setting
+    - country: 5
+      meaning: "param\xE8tres"
+    - country: 6
+      meaning: Einstellungen
+    - country: 7
+      meaning: "\u0938\u092E\u093E\u092F\u094B\u091C\u0928"
+    - country: 8
+      meaning: pengaturan
+    - country: 9
+      meaning: impostazioni
+    - country: 10
+      meaning: "\u8A2D\u5B9A"
+    - country: 11
+      meaning: "configura\xE7\xF5es"
+    - country: 12
+      meaning: "\u043D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438"
+    - country: 13
+      meaning: ajustes
+    - country: 14
+      meaning: ayarlar
+    - country: 15
+      meaning: "\u062A\u0631\u062A\u06CC\u0628\u0627\u062A"
+  - word: help
+    wordTranslation:
+    - country: 0
+      meaning: "\u064A\u0633\u0627\u0639\u062F"
+    - country: 1
+      meaning: "\u5E2E\u52A9"
+    - country: 2
+      meaning: hulp
+    - country: 3
+      meaning: help
+    - country: 4
+      meaning: tulong
+    - country: 5
+      meaning: aide
+    - country: 6
+      meaning: helfen
+    - country: 7
+      meaning: "\u092E\u0926\u0926"
+    - country: 8
+      meaning: membantu
+    - country: 9
+      meaning: aiuto
+    - country: 10
+      meaning: "\u30D8\u30EB\u30D7"
+    - country: 11
+      meaning: ajuda
+    - country: 12
+      meaning: "\u043F\u043E\u043C\u043E\u0449\u044C"
+    - country: 13
+      meaning: ayuda
+    - country: 14
+      meaning: "yard\u0131m"
+    - country: 15
+      meaning: "\u0645\u062F\u062F"
+  - word: save progress
+    wordTranslation:
+    - country: 0
+      meaning: "\u062D\u0641\u0638 \u0627\u0644\u062A\u0642\u062F\u0645"
+    - country: 1
+      meaning: "\u4FDD\u5B58\u8FDB\u5EA6"
+    - country: 2
+      meaning: vooruitgang opslaan
+    - country: 3
+      meaning: save progress
+    - country: 4
+      meaning: i-save ang pag-unlad
+    - country: 5
+      meaning: enregistrer la progression
+    - country: 6
+      meaning: Fortschritt speichern
+    - country: 7
+      meaning: "\u092A\u094D\u0930\u0917\u0924\u093F \u0938\u0939\u0947\u091C\u0947\u0902"
+    - country: 8
+      meaning: menyimpan kemajuan
+    - country: 9
+      meaning: salvare i progressi
+    - country: 10
+      meaning: "\u9032\u884C\u72B6\u6CC1\u3092\u4FDD\u5B58\u3059\u308B"
+    - country: 11
+      meaning: salvar progresso
+    - country: 12
+      meaning: "\u0441\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C \u043F\u0440\u043E\u0433\u0440\u0435\u0441\u0441"
+    - country: 13
+      meaning: guardar progreso
+    - country: 14
+      meaning: ilerlemeyi kaydet
+    - country: 15
+      meaning: "\u062A\u0631\u0642\u06CC \u06A9\u0648 \u0645\u062D\u0641\u0648\u0638
+        \u06A9\u0631\u06CC\u06BA"
+  - word: invite friends
+    wordTranslation:
+    - country: 0
+      meaning: "\u0627\u062F\u0639\u0648 \u0623\u0635\u062F\u0642\u0627\u0621"
+    - country: 1
+      meaning: "\u9080\u8BF7\u670B\u53CB"
+    - country: 2
+      meaning: nodig vrienden uit
+    - country: 3
+      meaning: invite friends
+    - country: 4
+      meaning: mag-imbita ng mga kaibigan
+    - country: 5
+      meaning: Inviter des amis
+    - country: 6
+      meaning: Freunde einladen
+    - country: 7
+      meaning: "\u092E\u093F\u0924\u094D\u0930\u094B\u0902 \u0915\u094B \u0906\u092E\u0902\u0924\u094D\u0930\u093F\u0924
+        \u0915\u0930\u0947\u0902"
+    - country: 8
+      meaning: mengundang teman-teman
+    - country: 9
+      meaning: invita gli amici
+    - country: 10
+      meaning: "\u53CB\u9054\u3092\u62DB\u5F85"
+    - country: 11
+      meaning: convide amigos
+    - country: 12
+      meaning: "\u043F\u0440\u0438\u0433\u043B\u0430\u0441\u0438\u0442\u044C \u0434\u0440\u0443\u0437\u0435\u0439"
+    - country: 13
+      meaning: invitar a amigos
+    - country: 14
+      meaning: "arkada\u015Flar\u0131 davet etmek"
+    - country: 15
+      meaning: "\u062F\u0648\u0633\u062A\u0648\u06BA \u06A9\u0648 \u0645\u062F\u0639\u0648
+        \u06A9\u0631\u06CC\u06BA"
+  - word: friend
+    wordTranslation:
+    - country: 0
+      meaning: "\u0635\u062F\u064A\u0642"
+    - country: 1
+      meaning: "\u670B\u53CB"
+    - country: 2
+      meaning: vriend
+    - country: 3
+      meaning: friend
+    - country: 4
+      meaning: kaibigan
+    - country: 5
+      meaning: ami
+    - country: 6
+      meaning: Freund
+    - country: 7
+      meaning: "\u0926\u094B\u0938\u094D\u0924"
+    - country: 8
+      meaning: teman
+    - country: 9
+      meaning: amico
+    - country: 10
+      meaning: "\u53CB\u4EBA"
+    - country: 11
+      meaning: amigo
+    - country: 12
+      meaning: "\u0434\u0440\u0443\u0433"
+    - country: 13
+      meaning: amigo
+    - country: 14
+      meaning: "arkada\u015F"
+    - country: 15
+      meaning: "\u062F\u0648\u0633\u062A"
+  - word: invite and earn
+    wordTranslation:
+    - country: 0
+      meaning: "\u062F\u0639\u0648\u0629 \u0648\u0643\u0633\u0628"
+    - country: 1
+      meaning: "\u9080\u8BF7\u5E76\u8D5A\u53D6"
+    - country: 2
+      meaning: uitnodigen en verdienen
+    - country: 3
+      meaning: invite and earn
+    - country: 4
+      meaning: mag-imbita at kumita
+    - country: 5
+      meaning: inviter et gagner
+    - country: 6
+      meaning: einladen und verdienen
+    - country: 7
+      meaning: "\u0906\u092E\u0902\u0924\u094D\u0930\u093F\u0924 \u0915\u0930\u0947\u0902
+        \u0914\u0930 \u0915\u092E\u093E\u090F\u0901"
+    - country: 8
+      meaning: undang dan dapatkan
+    - country: 9
+      meaning: invitare e guadagnare
+    - country: 10
+      meaning: "\u62DB\u5F85\u3057\u3066\u7372\u5F97\u3059\u308B"
+    - country: 11
+      meaning: convide e ganhe
+    - country: 12
+      meaning: "\u043F\u0440\u0438\u0433\u043B\u0430\u0448\u0430\u0439\u0442\u0435
+        \u0438 \u0437\u0430\u0440\u0430\u0431\u0430\u0442\u044B\u0432\u0430\u0439\u0442\u0435"
+    - country: 13
+      meaning: invita y gana
+    - country: 14
+      meaning: davet et ve kazan
+    - country: 15
+      meaning: "\u0645\u062F\u0639\u0648 \u06A9\u0631\u06CC\u06BA \u0627\u0648\u0631
+        \u06A9\u0645\u0627\u0626\u06CC\u06BA\u06D4"
+  - word: help and technical support
+    wordTranslation:
+    - country: 0
+      meaning: "\u0627\u0644\u0645\u0633\u0627\u0639\u062F\u0629 \u0648\u0627\u0644\u062F\u0639\u0645
+        \u0627\u0644\u0641\u0646\u064A"
+    - country: 1
+      meaning: "\u5E2E\u52A9\u548C\u6280\u672F\u652F\u6301"
+    - country: 2
+      meaning: hulp en technische ondersteuning
+    - country: 3
+      meaning: help and technical support
+    - country: 4
+      meaning: tulong at teknikal na suporta
+    - country: 5
+      meaning: aide et support technique
+    - country: 6
+      meaning: "Hilfe und technische Unterst\xFCtzung"
+    - country: 7
+      meaning: "\u0938\u0939\u093E\u092F\u0924\u093E \u0914\u0930 \u0924\u0915\u0928\u0940\u0915\u0940
+        \u0938\u0939\u093E\u092F\u0924\u093E"
+    - country: 8
+      meaning: bantuan dan dukungan teknis
+    - country: 9
+      meaning: aiuto e supporto tecnico
+    - country: 10
+      meaning: "\u30D8\u30EB\u30D7\u3068\u6280\u8853\u30B5\u30DD\u30FC\u30C8"
+    - country: 11
+      meaning: "ajuda e suporte t\xE9cnico"
+    - country: 12
+      meaning: "\u043F\u043E\u043C\u043E\u0449\u044C \u0438 \u0442\u0435\u0445\u043D\u0438\u0447\u0435\u0441\u043A\u0430\u044F
+        \u043F\u043E\u0434\u0434\u0435\u0440\u0436\u043A\u0430"
+    - country: 13
+      meaning: "ayuda y soporte t\xE9cnico"
+    - country: 14
+      meaning: "yard\u0131m ve teknik destek"
+    - country: 15
+      meaning: "\u0645\u062F\u062F \u0627\u0648\u0631 \u062A\u06A9\u0646\u06CC\u06A9\u06CC
+        \u0645\u062F\u062F"
+  - word: see
+    wordTranslation:
+    - country: 0
+      meaning: "\u064A\u0631\u0649"
+    - country: 1
+      meaning: "\u770B"
+    - country: 2
+      meaning: zien
+    - country: 3
+      meaning: see
+    - country: 4
+      meaning: tingnan mo
+    - country: 5
+      meaning: voir
+    - country: 6
+      meaning: sehen
+    - country: 7
+      meaning: "\u0926\u0947\u0916\u0928\u093E"
+    - country: 8
+      meaning: melihat
+    - country: 9
+      meaning: Vedere
+    - country: 10
+      meaning: "\u898B\u308B"
+    - country: 11
+      meaning: ver
+    - country: 12
+      meaning: "\u0432\u0438\u0434\u0435\u0442\u044C"
+    - country: 13
+      meaning: ver
+    - country: 14
+      meaning: "G\xF6rmek"
+    - country: 15
+      meaning: "\u062F\u06CC\u06A9\u06BE\u06CC\u06BA"
+  - word: yes
+    wordTranslation:
+    - country: 0
+      meaning: "\u0646\u0639\u0645"
+    - country: 1
+      meaning: "\u662F\u7684"
+    - country: 2
+      meaning: Ja
+    - country: 3
+      meaning: yes
+    - country: 4
+      meaning: oo
+    - country: 5
+      meaning: Oui
+    - country: 6
+      meaning: Ja
+    - country: 7
+      meaning: "\u0939\u093E\u0901"
+    - country: 8
+      meaning: Ya
+    - country: 9
+      meaning: "S\xCC"
+    - country: 10
+      meaning: "\u306F\u3044"
+    - country: 11
+      meaning: sim
+    - country: 12
+      meaning: "\u0434\u0430"
+    - country: 13
+      meaning: "S\xED"
+    - country: 14
+      meaning: Evet
+    - country: 15
+      meaning: "\u062C\u06CC \u06C1\u0627\u06BA"
+  - word: no
+    wordTranslation:
+    - country: 0
+      meaning: "\u0644\u0627"
+    - country: 1
+      meaning: "\u4E0D"
+    - country: 2
+      meaning: Nee
+    - country: 3
+      meaning: no
+    - country: 4
+      meaning: hindi
+    - country: 5
+      meaning: Non
+    - country: 6
+      meaning: NEIN
+    - country: 7
+      meaning: "\u0928\u0939\u0940\u0902"
+    - country: 8
+      meaning: TIDAK
+    - country: 9
+      meaning: NO
+    - country: 10
+      meaning: "\u3044\u3044\u3048"
+    - country: 11
+      meaning: "n\xE3o"
+    - country: 12
+      meaning: "\u043D\u0435\u0442"
+    - country: 13
+      meaning: No
+    - country: 14
+      meaning: HAYIR
+    - country: 15
+      meaning: "\u0646\u06C1\u06CC\u06BA"
+  - word: tournament
+    wordTranslation:
+    - country: 0
+      meaning: "\u0627\u0644\u0645\u0633\u0627\u0628\u0642\u0629"
+    - country: 1
+      meaning: "\u6BD4\u8D5B"
+    - country: 2
+      meaning: toernooi
+    - country: 3
+      meaning: tournament
+    - country: 4
+      meaning: paligsahan
+    - country: 5
+      meaning: tournoi
+    - country: 6
+      meaning: Turnier
+    - country: 7
+      meaning: "\u091F\u0942\u0930\u094D\u0928\u093E\u092E\u0947\u0902\u091F"
+    - country: 8
+      meaning: turnamen
+    - country: 9
+      meaning: torneo
+    - country: 10
+      meaning: "\u30C8\u30FC\u30CA\u30E1\u30F3\u30C8"
+    - country: 11
+      meaning: torneio
+    - country: 12
+      meaning: "\u0442\u0443\u0440\u043D\u0438\u0440"
+    - country: 13
+      meaning: torneo
+    - country: 14
+      meaning: turnuva
+    - country: 15
+      meaning: "\u0679\u0648\u0631\u0646\u0627\u0645\u0646\u0679"
+  - word: leaderboard
+    wordTranslation:
+    - country: 0
+      meaning: "\u0627\u0644\u0645\u062A\u0635\u062F\u0631\u064A\u0646"
+    - country: 1
+      meaning: "\u6392\u884C\u699C"
+    - country: 2
+      meaning: Scorebord
+    - country: 3
+      meaning: leaderboard
+    - country: 4
+      meaning: leaderboard
+    - country: 5
+      meaning: classement
+    - country: 6
+      meaning: Bestenliste
+    - country: 7
+      meaning: "\u0932\u0940\u0921\u0930\u092C\u094B\u0930\u094D\u0921"
+    - country: 8
+      meaning: papan peringkat
+    - country: 9
+      meaning: classifica
+    - country: 10
+      meaning: "\u30EA\u30FC\u30C0\u30FC\u30DC\u30FC\u30C9"
+    - country: 11
+      meaning: Entre os melhores
+    - country: 12
+      meaning: "\u0442\u0430\u0431\u043B\u0438\u0446\u0430 \u043B\u0438\u0434\u0435\u0440\u043E\u0432"
+    - country: 13
+      meaning: "tabla de clasificaci\xF3n"
+    - country: 14
+      meaning: "Liderler S\u0131ralamas\u0131"
+    - country: 15
+      meaning: "\u0644\u06CC\u0688\u0631 \u0628\u0648\u0631\u0688"
+  - word: level
+    wordTranslation:
+    - country: 0
+      meaning: "\u0645\u0633\u062A\u0648\u0649"
+    - country: 1
+      meaning: "\u7B49\u7EA7"
+    - country: 2
+      meaning: niveau
+    - country: 3
+      meaning: level
+    - country: 4
+      meaning: antas
+    - country: 5
+      meaning: niveau
+    - country: 6
+      meaning: Ebene
+    - country: 7
+      meaning: "\u0938\u094D\u0924\u0930"
+    - country: 8
+      meaning: tingkat
+    - country: 9
+      meaning: livello
+    - country: 10
+      meaning: "\u30EC\u30D9\u30EB"
+    - country: 11
+      meaning: "n\xEDvel"
+    - country: 12
+      meaning: "\u0443\u0440\u043E\u0432\u0435\u043D\u044C"
+    - country: 13
+      meaning: nivel
+    - country: 14
+      meaning: seviye
+    - country: 15
+      meaning: "\u0633\u0637\u062D"
+  - word: super bundle
+    wordTranslation:
+    - country: 0
+      meaning: "\u062D\u0632\u0645\u0629 \u0633\u0648\u0628\u0631"
+    - country: 1
+      meaning: "\u8D85\u7EA7\u6346\u7ED1"
+    - country: 2
+      meaning: superbundel
+    - country: 3
+      meaning: super bundle
+    - country: 4
+      meaning: sobrang bundle
+    - country: 5
+      meaning: super paquet
+    - country: 6
+      meaning: Superpaket
+    - country: 7
+      meaning: "\u0938\u0941\u092A\u0930 \u092C\u0902\u0921\u0932"
+    - country: 8
+      meaning: bundel super
+    - country: 9
+      meaning: super pacchetto
+    - country: 10
+      meaning: "\u30B9\u30FC\u30D1\u30FC\u30D0\u30F3\u30C9\u30EB"
+    - country: 11
+      meaning: super pacote
+    - country: 12
+      meaning: "\u0441\u0443\u043F\u0435\u0440 \u043A\u043E\u043C\u043F\u043B\u0435\u043A\u0442"
+    - country: 13
+      meaning: "s\xFAper paquete"
+    - country: 14
+      meaning: "s\xFCper paket"
+    - country: 15
+      meaning: "\u0633\u067E\u0631 \u0628\u0646\u0688\u0644"
+  - word: extreme bundle
+    wordTranslation:
+    - country: 0
+      meaning: "\u062D\u0632\u0645\u0629 \u0627\u0644\u0645\u062A\u0637\u0631\u0641\u0629"
+    - country: 1
+      meaning: "\u6781\u7AEF\u6346\u7ED1"
+    - country: 2
+      meaning: extreme bundel
+    - country: 3
+      meaning: extreme bundle
+    - country: 4
+      meaning: matinding bundle
+    - country: 5
+      meaning: "paquet extr\xEAme"
+    - country: 6
+      meaning: "extremes B\xFCndel"
+    - country: 7
+      meaning: "\u091A\u0930\u092E \u092C\u0902\u0921\u0932"
+    - country: 8
+      meaning: bundel ekstrim
+    - country: 9
+      meaning: fascio estremo
+    - country: 10
+      meaning: "\u6975\u7AEF\u306A\u30D0\u30F3\u30C9\u30EB"
+    - country: 11
+      meaning: pacote extremo
+    - country: 12
+      meaning: "\u043A\u0440\u0430\u0439\u043D\u0438\u0439 \u043A\u043E\u043C\u043F\u043B\u0435\u043A\u0442"
+    - country: 13
+      meaning: paquete extremo
+    - country: 14
+      meaning: "a\u015F\u0131r\u0131 paket"
+    - country: 15
+      meaning: "\u0627\u0646\u062A\u06C1\u0627\u0626\u06CC \u0628\u0646\u0688\u0644"
+  - word: power
+    wordTranslation:
+    - country: 0
+      meaning: "\u0642\u0648\u0629"
+    - country: 1
+      meaning: "\u529B\u91CF"
+    - country: 2
+      meaning: stroom
+    - country: 3
+      meaning: power
+    - country: 4
+      meaning: kapangyarihan
+    - country: 5
+      meaning: pouvoir
+    - country: 6
+      meaning: Leistung
+    - country: 7
+      meaning: "\u0936\u0915\u094D\u0924\u093F"
+    - country: 8
+      meaning: kekuatan
+    - country: 9
+      meaning: energia
+    - country: 10
+      meaning: "\u529B"
+    - country: 11
+      meaning: poder
+    - country: 12
+      meaning: "\u0432\u043B\u0430\u0441\u0442\u044C"
+    - country: 13
+      meaning: fuerza
+    - country: 14
+      meaning: "g\xFC\xE7"
+    - country: 15
+      meaning: "\u0637\u0627\u0642\u062A"
+  - word: powers are only valid in free mode
+    wordTranslation:
+    - country: 0
+      meaning: "\u0627\u0644\u0635\u0644\u0627\u062D\u064A\u0627\u062A \u0635\u0627\u0644\u062D\u0629
+        \u0641\u0642\u0637 \u0641\u064A \u0627\u0644\u0648\u0636\u0639 \u0627\u0644\u062D\u0631"
+    - country: 1
+      meaning: "\u6743\u529B\u4EC5\u5728\u81EA\u7531\u6A21\u5F0F\u4E0B\u6709\u6548"
+    - country: 2
+      meaning: bevoegdheden zijn alleen geldig in de vrije modus
+    - country: 3
+      meaning: powers are only valid in free mode
+    - country: 4
+      meaning: Ang mga kapangyarihan ay may bisa lamang sa libreng mode
+    - country: 5
+      meaning: les pouvoirs ne sont valables qu'en mode libre
+    - country: 6
+      meaning: "Befugnisse sind nur im freien Modus g\xFCltig"
+    - country: 7
+      meaning: "\u0936\u0915\u094D\u0924\u093F\u092F\u093E\u0902 \u0915\u0947\u0935\u0932
+        \u092B\u094D\u0930\u0940 \u092E\u094B\u0921 \u092E\u0947\u0902 \u092E\u093E\u0928\u094D\u092F
+        \u0939\u0948\u0902"
+    - country: 8
+      meaning: kekuatan hanya berlaku dalam mode bebas
+    - country: 9
+      meaning: "i poteri sono validi solo in modalit\xE0 gratuita"
+    - country: 10
+      meaning: "\u30D1\u30EF\u30FC\u306F\u30D5\u30EA\u30FC\u30E2\u30FC\u30C9\u3067\u306E\u307F\u6709\u52B9\u3067\u3059"
+    - country: 11
+      meaning: "poderes s\xF3 s\xE3o v\xE1lidos no modo livre"
+    - country: 12
+      meaning: "\u043F\u043E\u043B\u043D\u043E\u043C\u043E\u0447\u0438\u044F \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0442\u0435\u043B\u044C\u043D\u044B
+        \u0442\u043E\u043B\u044C\u043A\u043E \u0432 \u0441\u0432\u043E\u0431\u043E\u0434\u043D\u043E\u043C
+        \u0440\u0435\u0436\u0438\u043C\u0435"
+    - country: 13
+      meaning: "Los poderes solo son v\xE1lidos en modo libre."
+    - country: 14
+      meaning: "g\xFC\xE7ler yaln\u0131zca serbest modda ge\xE7erlidir"
+    - country: 15
+      meaning: "\u0627\u062E\u062A\u06CC\u0627\u0631\u0627\u062A \u0635\u0631\u0641
+        \u0645\u0641\u062A \u0645\u0648\u0688 \u0645\u06CC\u06BA \u062F\u0631\u0633\u062A
+        \u06C1\u06CC\u06BA\u06D4"
+  - word: badges
+    wordTranslation:
+    - country: 0
+      meaning: "\u0634\u0627\u0631\u0627\u062A"
+    - country: 1
+      meaning: "\u5FBD\u7AE0"
+    - country: 2
+      meaning: insignes
+    - country: 3
+      meaning: badges
+    - country: 4
+      meaning: mga badge
+    - country: 5
+      meaning: insignes
+    - country: 6
+      meaning: Abzeichen
+    - country: 7
+      meaning: "\u092C\u0948\u091C"
+    - country: 8
+      meaning: lencana
+    - country: 9
+      meaning: distintivi
+    - country: 10
+      meaning: "\u30D0\u30C3\u30B8"
+    - country: 11
+      meaning: Distintivos
+    - country: 12
+      meaning: "\u0437\u043D\u0430\u0447\u043A\u0438"
+    - country: 13
+      meaning: insignias
+    - country: 14
+      meaning: Rozetler
+    - country: 15
+      meaning: "\u0628\u06CC\u062C\u0632"
+  - word: common
+    wordTranslation:
+    - country: 0
+      meaning: "\u0634\u0627\u0626\u0639"
+    - country: 1
+      meaning: "\u5E38\u89C1\u7684"
+    - country: 2
+      meaning: gewoon
+    - country: 3
+      meaning: common
+    - country: 4
+      meaning: karaniwan
+    - country: 5
+      meaning: commun
+    - country: 6
+      meaning: gemeinsam
+    - country: 7
+      meaning: "\u0938\u093E\u092E\u093E\u0928\u094D\u092F"
+    - country: 8
+      meaning: umum
+    - country: 9
+      meaning: comune
+    - country: 10
+      meaning: "\u4E00\u822C"
+    - country: 11
+      meaning: comum
+    - country: 12
+      meaning: "\u043E\u0431\u0449\u0438\u0439"
+    - country: 13
+      meaning: "com\xFAn"
+    - country: 14
+      meaning: "yayg\u0131n"
+    - country: 15
+      meaning: "\u0639\u0627\u0645"
+  - word: golden
+    wordTranslation:
+    - country: 0
+      meaning: "\u0630\u0647\u0628\u064A"
+    - country: 1
+      meaning: "\u91D1\u7684"
+    - country: 2
+      meaning: gouden
+    - country: 3
+      meaning: golden
+    - country: 4
+      meaning: ginto
+    - country: 5
+      meaning: "dor\xE9"
+    - country: 6
+      meaning: golden
+    - country: 7
+      meaning: "\u0938\u094D\u0935\u0930\u094D\u0923"
+    - country: 8
+      meaning: keemasan
+    - country: 9
+      meaning: d'oro
+    - country: 10
+      meaning: "\u30B4\u30FC\u30EB\u30C7\u30F3"
+    - country: 11
+      meaning: dourado
+    - country: 12
+      meaning: "\u0437\u043E\u043B\u043E\u0442\u043E\u0439"
+    - country: 13
+      meaning: dorado
+    - country: 14
+      meaning: "alt\u0131n"
+    - country: 15
+      meaning: "\u0633\u0646\u06C1\u0631\u06CC"
+  - word: legendary
+    wordTranslation:
+    - country: 0
+      meaning: "\u0623\u0633\u0637\u0648\u0631\u064A"
+    - country: 1
+      meaning: "\u4F20\u5947\u7684"
+    - country: 2
+      meaning: legendarisch
+    - country: 3
+      meaning: legendary
+    - country: 4
+      meaning: maalamat
+    - country: 5
+      meaning: "l\xE9gendaire"
+    - country: 6
+      meaning: "legend\xE4r"
+    - country: 7
+      meaning: "\u092A\u094C\u0930\u093E\u0923\u093F\u0915"
+    - country: 8
+      meaning: legendaris
+    - country: 9
+      meaning: leggendario
+    - country: 10
+      meaning: "\u4F1D\u8AAC\u306E"
+    - country: 11
+      meaning: "lend\xE1rio"
+    - country: 12
+      meaning: "\u043B\u0435\u0433\u0435\u043D\u0434\u0430\u0440\u043D\u044B\u0439"
+    - country: 13
+      meaning: legendario
+    - country: 14
+      meaning: efsanevi
+    - country: 15
+      meaning: "\u0627\u0641\u0633\u0627\u0646\u0648\u06CC"
+  - word: play
+    wordTranslation:
+    - country: 0
+      meaning: "\u064A\u0644\u0639\u0628"
+    - country: 1
+      meaning: "\u73A9"
+    - country: 2
+      meaning: toneelstuk
+    - country: 3
+      meaning: play
+    - country: 4
+      meaning: maglaro
+    - country: 5
+      meaning: jouer
+    - country: 6
+      meaning: spielen
+    - country: 7
+      meaning: "\u0916\u0947\u0932"
+    - country: 8
+      meaning: bermain
+    - country: 9
+      meaning: giocare
+    - country: 10
+      meaning: "\u904A\u3076"
+    - country: 11
+      meaning: jogar
+    - country: 12
+      meaning: "\u0438\u0433\u0440\u0430\u0442\u044C"
+    - country: 13
+      meaning: jugar
+    - country: 14
+      meaning: oynamak
+    - country: 15
+      meaning: "\u06A9\u06BE\u06CC\u0644\u06CC\u06BA"
+  data:
+  - translatedTo: -1
+    word: language
+  - translatedTo: 17174
+    word: automatic
+  - translatedTo: -1
+    word: hello
+  - translatedTo: 16386
+    word: menu
+  - translatedTo: -1
+    word: settings
+  - translatedTo: -1
+    word: help
+  - translatedTo: -1
+    word: save progress
+  - translatedTo: -1
+    word: invite friends
+  - translatedTo: -1
+    word: friend
+  - translatedTo: -1
+    word: invite and earn
+  - translatedTo: -1
+    word: help and technical support
+  - translatedTo: -1
+    word: see
+  - translatedTo: -1
+    word: yes
+  - translatedTo: -1
+    word: no
+  - translatedTo: -1
+    word: tournament
+  - translatedTo: -1
+    word: leaderboard
+  - translatedTo: -1
+    word: level
+  - translatedTo: -1
+    word: free play
+  - translatedTo: -1
+    word: super bundle
+  - translatedTo: -1
+    word: extreme bundle
+  - translatedTo: -1
+    word: power
+  - translatedTo: -1
+    word: powers are only valid in free mode
+  - translatedTo: -1
+    word: badges
+  - translatedTo: -1
+    word: common
+  - translatedTo: -1
+    word: golden
+  - translatedTo: -1
+    word: legendary
+  - translatedTo: -1
+    word: free
+  - translatedTo: -1
+    word: play
+  - translatedTo: -1
+    word: history
+  successfullDownloaded: 28
+  sourceLanguage: 3
