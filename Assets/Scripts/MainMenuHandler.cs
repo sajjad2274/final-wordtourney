@@ -1324,8 +1324,15 @@ public class MainMenuHandler : MonoBehaviour
             else
             {
                 isSpinWheelAd = true;
-              AdmobAds.instance.ShowRewardedAd();
-              // RewardedAdController.instance.ShowRewardedAd();
+                GooglesAdsController.Instance?.ShowRewardedAd(rewardGiven =>
+                {
+                    if (rewardGiven)
+                    {
+                        SpinAnimatorWheel();
+                    }
+                });
+
+                // RewardedAdController.instance.ShowRewardedAd();
             }
 
         }

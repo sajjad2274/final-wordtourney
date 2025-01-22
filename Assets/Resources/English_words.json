@@ -2,196 +2,441 @@
   {
     "level": 1,
     "words": [
-      "the",
-      "het",
-      "teh"
+      "aac",
+      "aca",
+      "caa"
     ]
   },
   {
     "level": 2,
     "words": [
-      "and",
-      "dan",
-      "dna"
+      "abc",
+      "bac",
+      "cab"
     ]
   },
   {
     "level": 3,
     "words": [
-      "this",
-      "hits",
-      "hist"
+      "abn",
+      "ban",
+      "nba"
     ]
   },
   {
     "level": 4,
     "words": [
-      "not",
-      "ton",
-      "ont"
+      "abs",
+      "bas",
+      "sba"
     ]
   },
   {
     "level": 5,
     "words": [
-      "are",
-      "ear",
-      "era"
+      "abt",
+      "bat",
+      "tab"
     ]
   },
   {
     "level": 6,
     "words": [
-      "post",
-      "stop",
-      "spot",
-      "tops"
+      "acc",
+      "cac",
+      "cca"
     ]
   },
   {
     "level": 7,
     "words": [
-      "mail",
-      "mali",
-      "lima",
-      "liam"
+      "acl",
+      "cal",
+      "lac"
     ]
   },
   {
     "level": 8,
     "words": [
-      "line",
-      "neil",
-      "nile",
-      "lien"
+      "acm",
+      "amc",
+      "cam"
     ]
   },
   {
     "level": 9,
     "words": [
-      "code",
-      "oecd",
-      "deco",
-      "coed"
+      "acp",
+      "apc",
+      "cap"
     ]
   },
   {
     "level": 10,
     "words": [
-      "same",
-      "mesa",
-      "ames",
-      "seam"
+      "acs",
+      "asc",
+      "cas"
     ]
   },
   {
     "level": 11,
     "words": [
-      "care",
-      "race",
-      "acer",
-      "acre"
+      "act",
+      "atc",
+      "cat"
     ]
   },
   {
     "level": 12,
     "words": [
-      "team",
-      "meat",
-      "meta",
-      "mate"
+      "adc",
+      "cad",
+      "dac"
     ]
   },
   {
     "level": 13,
     "words": [
-      "live",
-      "evil",
-      "levi",
-      "veil"
+      "adm",
+      "amd",
+      "dam"
     ]
   },
   {
     "level": 14,
     "words": [
-      "east",
-      "seat",
-      "esta",
-      "eats"
+      "adp",
+      "pad",
+      "pda"
     ]
   },
   {
     "level": 15,
     "words": [
-      "garden",
-      "danger",
-      "grande",
-      "ranged"
+      "adr",
+      "dar",
+      "rad"
     ]
   },
   {
     "level": 16,
     "words": [
-      "least",
-      "slate",
-      "stale",
-      "steal"
+      "ads",
+      "das",
+      "dsa"
     ]
   },
   {
     "level": 17,
     "words": [
-      "edit",
-      "diet",
-      "tied",
-      "tide"
+      "aes",
+      "eas",
+      "esa"
     ]
   },
   {
     "level": 18,
     "words": [
-      "step",
-      "pets",
-      "sept",
-      "pest"
+      "afc",
+      "cfa",
+      "fac"
     ]
   },
   {
     "level": 19,
     "words": [
-      "later",
-      "alert",
-      "alter",
-      "ratel"
+      "aft",
+      "fat",
+      "fta"
     ]
   },
   {
     "level": 20,
     "words": [
-      "notes",
-      "stone",
-      "tones",
-      "onset"
+      "ago",
+      "gao",
+      "goa"
     ]
   },
   {
     "level": 21,
     "words": [
-      "roman",
-      "manor",
-      "moran",
-      "ramon",
-      "norma"
+      "acer",
+      "acre",
+      "care",
+      "race"
     ]
   },
   {
     "level": 22,
     "words": [
-      "trace",
-      "react",
-      "carte",
-      "crate",
-      "cater"
+      "acts",
+      "cast",
+      "cats",
+      "scat"
+    ]
+  },
+  {
+    "level": 23,
+    "words": [
+      "aest",
+      "east",
+      "eats",
+      "esta"
+    ]
+  },
+  {
+    "level": 24,
+    "words": [
+      "ales",
+      "leas",
+      "sale",
+      "seal"
+    ]
+  },
+  {
+    "level": 25,
+    "words": [
+      "alps",
+      "laps",
+      "pals",
+      "slap"
+    ]
+  },
+  {
+    "level": 26,
+    "words": [
+      "amen",
+      "mane",
+      "mean",
+      "name"
+    ]
+  },
+  {
+    "level": 27,
+    "words": [
+      "ames",
+      "mesa",
+      "same",
+      "seam"
+    ]
+  },
+  {
+    "level": 28,
+    "words": [
+      "ares",
+      "ears",
+      "eras",
+      "sear"
+    ]
+  },
+  {
+    "level": 29,
+    "words": [
+      "arts",
+      "rats",
+      "star",
+      "tars"
+    ]
+  },
+  {
+    "level": 30,
+    "words": [
+      "asps",
+      "pass",
+      "saps",
+      "spas"
+    ]
+  },
+  {
+    "level": 31,
+    "words": [
+      "astm",
+      "mast",
+      "mats",
+      "tams"
+    ]
+  },
+  {
+    "level": 32,
+    "words": [
+      "code",
+      "coed",
+      "deco",
+      "oecd"
+    ]
+  },
+  {
+    "level": 33,
+    "words": [
+      "dale",
+      "deal",
+      "lade",
+      "lead"
+    ]
+  },
+  {
+    "level": 34,
+    "words": [
+      "diet",
+      "edit",
+      "tide",
+      "tied"
+    ]
+  },
+  {
+    "level": 35,
+    "words": [
+      "elan",
+      "lane",
+      "lean",
+      "lena"
+    ]
+  },
+  {
+    "level": 36,
+    "words": [
+      "emit",
+      "item",
+      "mite",
+      "time"
+    ]
+  },
+  {
+    "level": 37,
+    "words": [
+      "evil",
+      "levi",
+      "live",
+      "veil"
+    ]
+  },
+  {
+    "level": 38,
+    "words": [
+      "gnus",
+      "guns",
+      "snug",
+      "sung"
+    ]
+  },
+  {
+    "level": 39,
+    "words": [
+      "hist",
+      "hits",
+      "shit",
+      "sith"
+    ]
+  },
+  {
+    "level": 40,
+    "words": [
+      "lair",
+      "liar",
+      "lira",
+      "rail"
+    ]
+  },
+  {
+    "level": 41,
+    "words": [
+      "angered",
+      "derange",
+      "engarde",
+      "enraged",
+      "gardeen"
+    ]
+  },
+  {
+    "level": 42,
+    "words": [
+      "angrite",
+      "granite",
+      "ingrate",
+      "ingreat",
+      "negrita"
+    ]
+  },
+  {
+    "level": 43,
+    "words": [
+      "aridest",
+      "astride",
+      "staider",
+      "tardies",
+      "tirades"
+    ]
+  },
+  {
+    "level": 44,
+    "words": [
+      "artemis",
+      "imarets",
+      "maestri",
+      "maister",
+      "maitres"
+    ]
+  },
+  {
+    "level": 45,
+    "words": [
+      "aspired",
+      "despair",
+      "diapers",
+      "diasper",
+      "pardesi"
+    ]
+  },
+  {
+    "level": 46,
+    "words": [
+      "canters",
+      "nectars",
+      "recants",
+      "scanter",
+      "trances"
+    ]
+  },
+  {
+    "level": 47,
+    "words": [
+      "carlino",
+      "carolin",
+      "clarino",
+      "clarion",
+      "colarin"
+    ]
+  },
+  {
+    "level": 48,
+    "words": [
+      "dearths",
+      "hardest",
+      "hatreds",
+      "threads",
+      "trashed"
+    ]
+  },
+  {
+    "level": 49,
+    "words": [
+      "diopter",
+      "dioptre",
+      "proetid",
+      "proteid",
+      "protide"
+    ]
+  },
+  {
+    "level": 50,
+    "words": [
+      "earings",
+      "erasing",
+      "gainers",
+      "reagins",
+      "regains"
     ]
   }
 ]

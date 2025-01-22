@@ -515,14 +515,37 @@ public class GamePlayHandler : MonoBehaviour
     public void WatchSkipLevelAd()
     {
         skipLevelAd = true;
-        AdmobAds.instance.ShowRewardedAd();
+
+        GooglesAdsController.Instance?.ShowRewardedAd(rewardGiven =>
+        {
+            if (rewardGiven)
+            {
+                progressData.gems += 5;
+                UpdateTxts();
+                detailPanelTxt.text = $"GOT 5 GEMS AS REWARD";
+                detailPanel.SetActive(true);
+            }
+        });
+
+      //  AdmobAds.instance.ShowRewardedAd();
 
     }
     public void WatchDoubleRewardAd()
     {
         doubleValueAd = true;
         doubleRewardAdBtn.SetActive(false);
-        AdmobAds.instance.ShowRewardedAd();
+
+        GooglesAdsController.Instance?.ShowRewardedAd(rewardGiven =>
+        {
+            if (rewardGiven)
+            {
+                int csh = Int32.Parse(cashTxtWinPanel.text);
+                progressData.gems += csh;
+                csh *= 2;
+                cashTxtWinPanel.text = csh.ToString();
+            }
+        });
+        //AdmobAds.instance.ShowRewardedAd();
 
     }
     public void RewardAds()
