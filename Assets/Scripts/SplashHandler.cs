@@ -72,7 +72,11 @@ public class SplashHandler : MonoBehaviour
     
         loadingImage.DOFillAmount(1f, 6f);
         yield return new WaitForSeconds(6f);
-       sceneLoader.allowSceneActivation = true;
+
+        GooglesAdsController.Instance.ShowInterstitialAd(() =>
+        {
+            sceneLoader.allowSceneActivation = true;
+        });
     }
     private void OnDestroy()
     {

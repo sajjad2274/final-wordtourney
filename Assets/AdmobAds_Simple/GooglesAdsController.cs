@@ -30,7 +30,7 @@ public class GooglesAdsController : MonoBehaviour
     }
     public bool testIds;
     
-    public GameObject adIsComing;
+    //public GameObject adIsComing;
 
 
     private AppTrackingTransparencyManager _trackingTransparencyManager;
@@ -44,7 +44,7 @@ public class GooglesAdsController : MonoBehaviour
     private void Start()
     {
 #if UNITY_EDITOR
-        adIsComing.GetComponent<Canvas>().sortingOrder = 0;
+        //adIsComing.GetComponent<Canvas>().sortingOrder = 0;
 #endif
         
         _trackingTransparencyManager = GetComponent<AppTrackingTransparencyManager>();
@@ -155,7 +155,7 @@ public class GooglesAdsController : MonoBehaviour
     
     public void EnableAdIsComing(bool value)
     {
-        adIsComing?.SetActive(value);
+        //adIsComing?.SetActive(value);
     }
     
     public void NoAdsPurchasedSuccessfully()
