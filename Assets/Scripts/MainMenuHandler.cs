@@ -338,6 +338,9 @@ public class MainMenuHandler : MonoBehaviour
         ld = new List<ListenerRegistration>();
         PlaySoundBgSimple();
         SetGameQuality();
+
+
+        GooglesAdsController.Instance?.ShowBanner();
     }
     void SetGameQuality()
     {

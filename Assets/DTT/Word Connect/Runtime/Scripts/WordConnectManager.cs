@@ -106,6 +106,8 @@ namespace DTT.WordConnect
             Instance = this;
             //GameTimer = new Stopwatch();
 
+            GooglesAdsController.Instance?.HideBanner();
+
         }
 
         public WordConnectConfigurationData GetLevelData(WordConnectConfigurationData config)
@@ -346,12 +348,18 @@ namespace DTT.WordConnect
                 FirebaseManager.Instance.UpdateTournamentProgress(timeElapsed, 1);
                 PlayerPrefs.SetFloat(GameHandler.Instance.tournamentCurrentPlayerData.tournamentName, 0f);
                 PlayerPrefs.Save();
+                Finish?.Invoke(results);
             }
             else
             {
                 GameHandler.Instance.progressData.wordsFound = "";
+                GooglesAdsController.Instance?.ShowInterstitialAd(() =>
+                {
+                    Finish?.Invoke(results);
+                });
             }
-            Finish?.Invoke(results);
+
+          
 
         }
         private void ClearHintsFile()

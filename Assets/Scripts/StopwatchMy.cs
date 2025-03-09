@@ -45,12 +45,17 @@ public class StopwatchMy : MonoBehaviour
                 {
                     
                     IsRunning = false;
-                    if(WordConnectManager.Instance!=null)
+                    GooglesAdsController.Instance?.ShowInterstitialAd(() =>
                     {
-                        WordConnectManager.Instance.ForceFinish();
-                        MainMenuHandler.isFromTournament = true;
-                        GamePlayHandler.Instance.tournamentEndedpanel.SetActive(true);
-                    }
+                        if (WordConnectManager.Instance != null)
+                        {
+                            WordConnectManager.Instance.ForceFinish();
+                            MainMenuHandler.isFromTournament = true;
+                            GamePlayHandler.Instance.tournamentEndedpanel.SetActive(true);
+                        }
+                    });
+
+                  
                 }
                 
             }

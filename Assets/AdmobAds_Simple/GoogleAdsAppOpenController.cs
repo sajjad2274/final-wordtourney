@@ -1,3 +1,5 @@
+using GoogleMobileAds.Api;
+using GoogleMobileAds.Common;
 using System;
 
 using UnityEngine;
@@ -6,12 +8,15 @@ using UnityEngine;
     public class GoogleAdsAppOpenController : MonoBehaviour
     {
         private GoogleMobileAds.Api.AppOpenAd _appOpenAd;
-        
-  
 
-    
 
-        [SerializeField] private string _adIdAndroid;
+    private void Awake()
+    {
+        AppStateEventNotifier.AppStateChanged += OnAppStateChanged;
+    }
+
+
+    [SerializeField] private string _adIdAndroid;
         [SerializeField] private string _adIdIOS;
 
         private string _adUnitId;
@@ -19,7 +24,7 @@ using UnityEngine;
         public void LoadAd()
         {
             
-            Debug.Log("Creating banner view." + _adUnitId);
+            Debug.Log("Creating appOpen view." + _adUnitId);
         
 #if UNITY_ANDROID
             _adUnitId = _adIdAndroid;
@@ -86,12 +91,18 @@ using UnityEngine;
             {
                 return;
             }
-            if (_appOpenAd == null)
-                return;
 
-           
-            _appOpenAd?.Show();
+
+        if (_appOpenAd != null && _appOpenAd.CanShowAd())
+        {
+            Debug.Log("Showing app open ad.");
+            _appOpenAd.Show();
         }
+        else
+        {
+            Debug.LogError("App open ad is not ready yet.");
+        }
+    }
         
         
         private void RegisterEventHandlers(GoogleMobileAds.Api.AppOpenAd ad)
@@ -166,45 +177,29 @@ using UnityEngine;
             }
         }
         
-        private void OnEnable()
+    
+        private void OnDestroy()
         {
-            try
-            {
-                GoogleMobileAds.Api.AppStateEventNotifier.AppStateChanged += OnAppStateChanged;
-            }
-            catch (System.Exception e)
-            {
-                Debug.Log("AppOpen---------------"+e.GetType());    
-            }
-        }
         
-        private void OnDisable()
-        {
-            try
-            {
-                GoogleMobileAds.Api.AppStateEventNotifier.AppStateChanged -= OnAppStateChanged;
-            }
-            catch (System.Exception e)
-            {
-                Debug.Log("AppOpen---------------"+e.GetType());    
-            }
-        }
-        
-        private void OnAppStateChanged(GoogleMobileAds.Common.AppState state)
-        {
-            if (state == GoogleMobileAds.Common.AppState.Foreground)
-            {
-                Debug.Log("App State changed to : " + state);
-                GooglesAdsController.Instance?.EnableAdIsComing(true);
-                ShowAd();
-            }
-            else
-            {
-                Time.timeScale = 1;
-            }
+            AppStateEventNotifier.AppStateChanged -= OnAppStateChanged;
+          
         }
 
+    private void OnAppStateChanged(AppState state)
+    {
+        Debug.Log("App State changed to : " + state);
+
+        // if the app is Foregrounded and the ad is available, show it.
+        if (state == AppState.Foreground)
+        {
+            if (IsAppOpenAvailable())
+            {
+                ShowAd();
+            }
+        }
     }
+
+}
     
 
 
