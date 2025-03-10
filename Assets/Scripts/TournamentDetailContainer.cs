@@ -224,7 +224,8 @@ public class TournamentDetailContainer : MonoBehaviour
                         tournamentPlayerData.entryFee = counter.entryFee;
                         tournamentPlayerData.prize = counter.prize;
 
-                        DocumentReference countRef = FirebaseManager.Instance.dbf.Collection("Tournaments").Document(tNameVar).Collection("Detail").Document("Players");
+                        DocumentReference countRef = FirebaseManager.Instance.dbf.Collection("Tournaments")
+                            .Document(tNameVar).Collection("Detail").Document("Players");
                         Dictionary<string, object> newPlayer = new Dictionary<string, object>();
                         newPlayer.Add(FirebaseManager.Instance.User.UserId, JsonConvert.SerializeObject(tournamentPlayerData));
                         countRef.UpdateAsync(newPlayer).ContinueWithOnMainThread(task =>

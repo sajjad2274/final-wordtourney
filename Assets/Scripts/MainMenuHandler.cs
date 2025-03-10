@@ -1856,10 +1856,7 @@ public class MainMenuHandler : MonoBehaviour
 
                                 if (data.ContainsKey(FirebaseManager.Instance.User.UserId))
                                 {
-
-
                                     tp = new TournamentPlayerData(JsonConvert.DeserializeObject<TournamentPlayerData>(data[FirebaseManager.Instance.User.UserId].ToString()));
-
                                 }
 
                                 t.CheckPlayers(data);
@@ -2052,7 +2049,8 @@ public class MainMenuHandler : MonoBehaviour
     private IEnumerator LoadScoreboardDataTournament(TournamentDetailContainer td2, TournamentPlayerData td = null)
     {
      TournamentHistory th = new TournamentHistory();
-        Task<DocumentSnapshot> DBTask = FirebaseManager.Instance.dbf.Collection("Tournaments").Document(td2.tNameVar).Collection("Detail").Document("Players").GetSnapshotAsync();
+        Task<DocumentSnapshot> DBTask = FirebaseManager.Instance.dbf.Collection("Tournaments")
+            .Document(td2.tNameVar).Collection("Detail").Document("Players").GetSnapshotAsync();
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 

@@ -1819,6 +1819,8 @@ public class FirebaseManager : MonoBehaviour
                 fetchTournamentLevelsObj.SetActive(true);
                 string url = data["levelURL"].ToString();
 
+                Debug.LogError("Sadiq---------------------> PrimaryDetail:|");
+
                 // Process the current URL and then move to the next item
                 StartCoroutine(ProcessJsonForTournamentLevels(url, GameHandler.Instance.tournamentLevels.IndexOf(tLevels), documents, index + 1, item.Id));
             }
