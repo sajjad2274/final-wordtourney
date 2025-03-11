@@ -52,16 +52,25 @@ public class TournamentManager : MonoBehaviour
 
                     //Debug.LogError(endTime + "Tournament Available" + DateTime.Now);
 
-                    if (DateTime.Now < endTime)
+                    var currTime = DateTime.Now;
+
+                    if (currTime >= startTime && currTime < endTime)
                     {
                         Debug.LogError("Tournament Available");
-                        tournamentNofication.SetActive(true);
-                        NotifyTournament?.Invoke(true);
-                        isTournamentSectionOpen = true;
+                        if (!isTournamentSectionOpen)
+                        {
+                            tournamentNofication.SetActive(true);
+                            NotifyTournament?.Invoke(true);
+                            isTournamentSectionOpen = true;
+                        }
+                     
                     }
                     else
                     {
                         NotifyTournament?.Invoke(false);
+                        isTournamentSectionOpen = false;
+                        tournamentNofication.SetActive(false);
+
                     }
                 }
                 else
@@ -75,15 +84,18 @@ public class TournamentManager : MonoBehaviour
     // Coroutine to check for new tournaments every 5 minutes
     private IEnumerator CheckNewTournaments()
     {
+
+        yield return new WaitForSeconds(2f); // 5 minutes
+
+
+            FetchTournaments();
+
         while (true)
         {
 
-            yield return new WaitForSeconds(3); // 5 minutes
+            yield return new WaitForSeconds(300); // 5 minutes
 
-            if (!isTournamentSectionOpen)
-            {
                 FetchTournaments();
-            }
 
 
         }
