@@ -18,7 +18,6 @@ using GooglePlayGames;
 using GooglePlayGames.BasicApi;
 using DTT.WordConnect;
 using Newtonsoft.Json.Linq;
-using System.Net;
 using UnityEngine.SceneManagement;
 using UnityEngine.Android;
 using System.IO;
