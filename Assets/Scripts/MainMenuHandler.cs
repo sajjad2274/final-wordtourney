@@ -28,6 +28,7 @@ public class MainMenuHandler : MonoBehaviour
 {
     public static MainMenuHandler Instance;
 
+    public GameObject tournamentScreen;
 
     public GameProgressData progressData;
 
@@ -473,7 +474,17 @@ public class MainMenuHandler : MonoBehaviour
         // StartCoroutine(boolTrue());
         //FirebaseManager.Instance.DeleteDocument("Beginner");
         LoadHighestLeaderBoard();
+
+        LoadTournamentPanel();
     }
+
+
+    private void LoadTournamentPanel()
+    {
+        tournamentScreen.GetComponent<Canvas>().enabled=NotificationManager.ShowTournamentPanel;
+        NotificationManager.ShowTournamentPanel = false;
+    }
+
     //bool isDataGot;
     //IEnumerator LoadHighestLeaderBoardAfterCashGet()
     //{

@@ -3617,9 +3617,9 @@ RectTransform:
   - {fileID: 22106498}
   m_Father: {fileID: 260269846}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 594.9652, y: -59.650024}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 992, y: 191.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &56599156
@@ -31419,13 +31419,6 @@ RectTransform:
   - {fileID: 300789655}
   - {fileID: 1062611716}
   - {fileID: 1850133422}
-  - {fileID: 954392298}
-  - {fileID: 247872947}
-  - {fileID: 6952521208152703190}
-  - {fileID: 1496217007}
-  - {fileID: 1631027796}
-  - {fileID: 361963138}
-  - {fileID: 1556275630}
   - {fileID: 1472017227}
   - {fileID: 222369778}
   - {fileID: 1376932384}
@@ -31450,6 +31443,13 @@ RectTransform:
   - {fileID: 1585366557}
   - {fileID: 1178188398}
   - {fileID: 581231047}
+  - {fileID: 954392298}
+  - {fileID: 247872947}
+  - {fileID: 6952521208152703190}
+  - {fileID: 1496217007}
+  - {fileID: 1631027796}
+  - {fileID: 361963138}
+  - {fileID: 1556275630}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -70794,9 +70794,9 @@ RectTransform:
   - {fileID: 73405003}
   m_Father: {fileID: 260269846}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 594.9652, y: -371.4833}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 992, y: 191.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &939780394
@@ -73953,9 +73953,9 @@ RectTransform:
   - {fileID: 181315682}
   m_Father: {fileID: 260269846}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 594.9652, y: -683.31665}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 992, y: 191.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &974679702
@@ -144891,6 +144891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1137d10f922f846408125fdbe9c699c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tournamentScreen: {fileID: 2038616412797126386}
   progressData: {fileID: 11400000, guid: f5086394b4c4653458321781e17770b1, type: 2}
   vp: {fileID: 36595483}
   videoFileName: wordtourneyhome.mp4
@@ -148673,7 +148674,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -142, y: 89.91261}
+  m_AnchoredPosition: {x: -142, y: 89.9126}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!199 &1850198299

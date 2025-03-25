@@ -1768,6 +1768,8 @@ public class FirebaseManager : MonoBehaviour
             {
                 Debug.Log("Notification permission granted.");
             }
+            NotificationManager.Instance.Init();
+
         });
     }
 
