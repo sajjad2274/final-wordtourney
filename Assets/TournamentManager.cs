@@ -49,6 +49,7 @@ public class TournamentManager : MonoBehaviour
                     var data = snapshot.ToDictionary();
                     var startTime = data["StartDate"].ConvertTo<Timestamp>().ToDateTime().ToLocalTime();
                     var endTime = data["EndDate"].ConvertTo<Timestamp>().ToDateTime().ToLocalTime();
+                    NotificationManager.Instance?.ScheduleTournamnetNotification("Beginner", startTime);
 
                     //Debug.LogError(endTime + "Tournament Available" + DateTime.Now);
 
@@ -63,6 +64,7 @@ public class TournamentManager : MonoBehaviour
                             NotifyTournament?.Invoke(true);
                             isTournamentSectionOpen = true;
                         }
+
                      
                     }
                     else
@@ -93,7 +95,7 @@ public class TournamentManager : MonoBehaviour
         while (true)
         {
 
-            yield return new WaitForSeconds(300); // 5 minutes
+            yield return new WaitForSeconds(5); // 5 minutes
 
                 FetchTournaments();
 
