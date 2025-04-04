@@ -1,79 +1,126 @@
 using Firebase.Messaging;
 using Firebase.Extensions;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using System;
 using Unity.Notifications.Android;
-using UnityEngine.Playables;
+using Firebase.Firestore;
+using Unity.VisualScripting;
 
 public class NotificationManager : MonoBehaviour
 {
     public static NotificationManager Instance;
 
-
-
     public static bool ShowTournamentPanel = false;
+
+    private float ScheduleTimeOffset = -1;
+
 
 
     private void Awake()
     {
         Instance = this;
+        DontDestroyOnLoad(this);
+
     }
 
-   public void ScheduleTournamnetNotification(string tournamentName, DateTime dateTime)
+    private void Start()
     {
+        AndroidNotificationCenter.OnNotificationReceived += OnNotificationReceived;
+    }
+
+    public void ScheduleTournamnetNotification(string tournamentName, DateTime startTime, DateTime endTime)
+    {
+        Debug.LogError($"Notification1 {startTime}    {endTime}");
+
 
         var Id = tournamentName.ToLower() + "_channel";
-        var newTime = dateTime.AddMinutes(-1);
+
+        var currTime = DateTime.Now;
+
+        var newTime = startTime.AddMinutes(ScheduleTimeOffset);
+
+
+
 
         if (PlayerPrefs.GetString(Id, "") == "")
         {
-           
+
+            if (currTime > newTime)
+            {
+                PlayerPrefs.SetString(Id, "");
+                PlayerPrefs.SetString("SaveNotificationId_" + Id, "");
+                Debug.LogError("Sadiq --------------------> Time Over!");
+                return;
+
+            }
+
+
+            Debug.LogError("Sadiq --------------------> Notification Schedule!    " + newTime);
+            var notId = ScheduleNotification(Id, newTime);
             PlayerPrefs.SetString(Id, newTime.ToString());
-            CreateNotificationChannel(Id);
-            ScheduleNotification(Id,newTime);
+            PlayerPrefs.SetString("SaveNotificationId_" + Id, notId.ToString());
             return;
         }
-        if(PlayerPrefs.GetString(Id, "")!= newTime.ToString())
+
+        if (PlayerPrefs.GetString(Id, "") != newTime.ToString())
         {
-            PlayerPrefs.SetString(Id, "");
-            AndroidNotificationCenter.CancelAllScheduledNotifications();
+
+            if (currTime > newTime)
+            {
+                var notId1 = PlayerPrefs.GetString("SaveNotificationId_" + Id, "");
+
+                if (notId1 != "")              
+                    AndroidNotificationCenter.CancelNotification(int.Parse(notId1));
+                
+                PlayerPrefs.SetString(Id, "");
+                PlayerPrefs.SetString("SaveNotificationId_" + Id, "");
+                Debug.LogError("Sadiq --------------------> Time Over2!");
+                return;
+
+            }
+
+            Debug.LogError("Sadiq --------------------> Notification Again!" + newTime);
             PlayerPrefs.SetString(Id, newTime.ToString());
-            CreateNotificationChannel(Id);
-            ScheduleNotification(Id, newTime);
-        }      
+
+            var notId = PlayerPrefs.GetString("SaveNotificationId_" + Id, "");
+
+            if (notId != "")
+            {
+                AndroidNotificationCenter.CancelNotification(int.Parse(notId));
+            }
+            var newNotId = ScheduleNotification(Id, newTime);
+            PlayerPrefs.SetString("SaveNotificationId_" + Id, newNotId.ToString());
+        }
     }
 
-    void CreateNotificationChannel(string id)
+
+
+    private int ScheduleNotification(string id, DateTime fireTIme)
     {
+
         var channel = new AndroidNotificationChannel()
         {
             Id = id,
             Name = id,
-            Importance = Importance.High,
+            Importance = Importance.Default,
             Description = "Generic notifications",
         };
 
         AndroidNotificationCenter.RegisterNotificationChannel(channel);
-    }
-
-    private void ScheduleNotification(string id,DateTime fireTIme)
-    {
         var notification = new AndroidNotification()
         {
             Title = "Tournament Reminder!",
             Text = "Don't forget! Your tournament starts soon.",
             FireTime = fireTIme
         };
-        AndroidNotificationCenter.SendNotification(notification, id);
+        return AndroidNotificationCenter.SendNotification(notification, id);
     }
 
     public void Init()
     {
 
-        ShowTournamentPanel = false;
+      //  ShowTournamentPanel = false;
         //Firebase.Messaging.FirebaseMessaging.TokenReceived += OnTokenReceived;
         //Firebase.Messaging.FirebaseMessaging.MessageReceived += OnMessageReceived;
         //UnityEngine.Debug.Log("Sadiq---------->Messagae---Init");
@@ -90,9 +137,11 @@ public class NotificationManager : MonoBehaviour
             var notificationIntent = AndroidNotificationCenter.GetLastNotificationIntent();
             if (notificationIntent != null)
             {
-               
-                Debug.Log("Sadiq --------------------> Notification Clicked!" + notificationIntent.Notification.Title+"     "+ notificationIntent.Id);
-                PlayerPrefs.SetString(notificationIntent.Id.ToString(), "");
+
+                Debug.LogError(notificationIntent.Channel + "    Sadiq --------------------> Notification Clicked!" + notificationIntent.Notification.Title + "     " + notificationIntent.Id);
+
+                PlayerPrefs.SetString(notificationIntent.Channel.ToString(), "");
+
                 AndroidNotificationCenter.CancelNotification(notificationIntent.Id);
                 // Open your panel or take any action here
 
@@ -123,8 +172,22 @@ public class NotificationManager : MonoBehaviour
         //}
     }
 
- 
+    private void OnNotificationReceived(AndroidNotificationIntentData data)
+    {
+        if (data.Notification.ShowInForeground)
+        {
+            Debug.LogError("Notification clicked while app was running: " + data.Notification.Title);
+           // MainMenuHandler.Instance?.LoadTournamentPanel();
+        }
 
+    }
+
+
+    private void OnDisable()
+    {
+        // Unsubscribe from the event to prevent memory leaks
+        AndroidNotificationCenter.OnNotificationReceived -= OnNotificationReceived;
+    }
 
 
     public void OnTokenReceived(object sender, Firebase.Messaging.TokenReceivedEventArgs token)
@@ -140,7 +203,7 @@ public class NotificationManager : MonoBehaviour
 
         if (e.Message.Data.ContainsKey("action") && e.Message.Data["action"] == "open_panel")
         {
-            ShowTournamentPanel = true;
+         //   ShowTournamentPanel = true;
             UnityEngine.Debug.Log("Sadiq---------->OpenPanel");
         }
     }

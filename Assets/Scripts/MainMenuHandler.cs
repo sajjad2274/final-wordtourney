@@ -479,7 +479,7 @@ public class MainMenuHandler : MonoBehaviour
     }
 
 
-    private void LoadTournamentPanel()
+    public void LoadTournamentPanel()
     {
         tournamentScreen.GetComponent<Canvas>().enabled=NotificationManager.ShowTournamentPanel;
         NotificationManager.ShowTournamentPanel = false;

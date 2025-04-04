@@ -49,7 +49,7 @@ public class TournamentManager : MonoBehaviour
                     var data = snapshot.ToDictionary();
                     var startTime = data["StartDate"].ConvertTo<Timestamp>().ToDateTime().ToLocalTime();
                     var endTime = data["EndDate"].ConvertTo<Timestamp>().ToDateTime().ToLocalTime();
-                    NotificationManager.Instance?.ScheduleTournamnetNotification("Beginner", startTime);
+
 
                     //Debug.LogError(endTime + "Tournament Available" + DateTime.Now);
 
@@ -74,6 +74,9 @@ public class TournamentManager : MonoBehaviour
                         tournamentNofication.SetActive(false);
 
                     }
+
+                    NotificationManager.Instance.ScheduleTournamnetNotification("Beginner", startTime, endTime);
+
                 }
                 else
             {

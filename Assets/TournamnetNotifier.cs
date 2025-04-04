@@ -17,7 +17,7 @@ public class TournamnetNotifier : MonoBehaviour
 
     private void NotifyTournament(bool show)
     {
-        Debug.LogError("TournamnetNotifier Show");
+        Debug.LogError("TournamnetNotifier Show"+show);
 
         notifyImage.SetActive(show);
     }
