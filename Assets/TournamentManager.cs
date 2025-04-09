@@ -5,15 +5,16 @@ using System.Linq;
 using System;
 using Unity.VisualScripting;
 using Firebase.Extensions;
+using System.Collections.Generic;
 
 public class TournamentManager : MonoBehaviour
 {
     public static TournamentManager Instance;
     public string[] AllTournamentNames;
+    public List<string> ActiveTournamentNames = new List<string>();
 
 
     private FirebaseFirestore db;
-    public bool isTournamentSectionOpen = false;
     public GameObject tournamentNofication;
 
     public static Action<bool> NotifyTournament; 
@@ -23,6 +24,11 @@ public class TournamentManager : MonoBehaviour
         Instance = this;
 
         DontDestroyOnLoad(this);
+
+        foreach (var tName in AllTournamentNames)
+            PlayerPrefs.SetInt(tName + "_isTournamentSectionOpen", 0);
+
+
     }
 
     void Start()
@@ -38,9 +44,9 @@ public class TournamentManager : MonoBehaviour
     private void FetchTournaments()
     {
 
-        //  foreach (var tName in AllTournamentNames)
-
-            db.Collection("Tournaments").Document("Beginner").Collection("Detail").Document("PrimaryDetail").GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        foreach (var tName in AllTournamentNames)
+        {
+            db.Collection("Tournaments").Document(tName).Collection("Detail").Document("PrimaryDetail").GetSnapshotAsync().ContinueWithOnMainThread(task =>
             {
                 if (task.IsCompleted && !task.IsFaulted)
                 {
@@ -57,33 +63,35 @@ public class TournamentManager : MonoBehaviour
 
                     if (currTime >= startTime && currTime < endTime)
                     {
-                        Debug.LogError("Tournament Available");
-                        if (!isTournamentSectionOpen)
+                        Log("Tournament Available: "+ tName);
+                        if (PlayerPrefs.GetInt(tName+ "_isTournamentSectionOpen",0)==0)
                         {
                             tournamentNofication.SetActive(true);
-                            NotifyTournament?.Invoke(true);
-                            isTournamentSectionOpen = true;
+                            PlayerPrefs.SetInt(tName + "_isTournamentSectionOpen", 1);
+                            if (!ActiveTournamentNames.Contains(tName))
+                               ActiveTournamentNames.Add(tName);
                         }
-
-                     
                     }
                     else
                     {
-                        NotifyTournament?.Invoke(false);
-                        isTournamentSectionOpen = false;
-                        tournamentNofication.SetActive(false);
+                        PlayerPrefs.SetInt(tName + "_isTournamentSectionOpen", 0);
 
+                        if (ActiveTournamentNames.Contains(tName))
+                            ActiveTournamentNames.Remove(tName);
                     }
 
-                    NotificationManager.Instance.ScheduleTournamnetNotification("Beginner", startTime, endTime);
+                    NotifyTournament?.Invoke(ActiveTournamentNames.Count > 0);
+
+
+                    NotificationManager.Instance.ScheduleTournamnetNotification(tName, startTime, endTime);
 
                 }
                 else
-            {
+                {
 
-            }
-        });
-
+                }
+            });
+        }
     }
 
     // Coroutine to check for new tournaments every 5 minutes
@@ -107,5 +115,13 @@ public class TournamentManager : MonoBehaviour
     }
 
 
+    public static void Log(string data)
+    {
+        string log =$"<color=#FFD900>{data}</color>";
+        Debug.Log(log);
+    }
+
 
 }
+
+

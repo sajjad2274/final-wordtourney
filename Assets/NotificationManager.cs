@@ -7,6 +7,9 @@ using Unity.Notifications.Android;
 using Firebase.Firestore;
 using Unity.VisualScripting;
 
+using UnityEngine;
+using UnityEngine.Android;
+
 public class NotificationManager : MonoBehaviour
 {
     public static NotificationManager Instance;
@@ -26,12 +29,21 @@ public class NotificationManager : MonoBehaviour
 
     private void Start()
     {
+
+        #if UNITY_ANDROID && !UNITY_EDITOR
+        if (Permission.HasUserAuthorizedPermission("android.permission.POST_NOTIFICATIONS") == false)
+        {
+            Permission.RequestUserPermission("android.permission.POST_NOTIFICATIONS");
+        }
+#endif
+
+
         AndroidNotificationCenter.OnNotificationReceived += OnNotificationReceived;
     }
 
     public void ScheduleTournamnetNotification(string tournamentName, DateTime startTime, DateTime endTime)
     {
-        Debug.LogError($"Notification1 {startTime}    {endTime}");
+        TournamentManager.Log($"{tournamentName}-> Start: {startTime}  -  End: {endTime}");
 
 
         var Id = tournamentName.ToLower() + "_channel";
@@ -50,13 +62,13 @@ public class NotificationManager : MonoBehaviour
             {
                 PlayerPrefs.SetString(Id, "");
                 PlayerPrefs.SetString("SaveNotificationId_" + Id, "");
-                Debug.LogError("Sadiq --------------------> Time Over!");
+                TournamentManager.Log($"{tournamentName}--------------------> Time Over!");
                 return;
 
             }
 
 
-            Debug.LogError("Sadiq --------------------> Notification Schedule!    " + newTime);
+            TournamentManager.Log($"{tournamentName}--------------------> Notification Schedule!    " + newTime);
             var notId = ScheduleNotification(Id, newTime);
             PlayerPrefs.SetString(Id, newTime.ToString());
             PlayerPrefs.SetString("SaveNotificationId_" + Id, notId.ToString());
@@ -75,12 +87,12 @@ public class NotificationManager : MonoBehaviour
                 
                 PlayerPrefs.SetString(Id, "");
                 PlayerPrefs.SetString("SaveNotificationId_" + Id, "");
-                Debug.LogError("Sadiq --------------------> Time Over2!");
+                TournamentManager.Log($"{tournamentName} --------------------> Time Over2!");
                 return;
 
             }
 
-            Debug.LogError("Sadiq --------------------> Notification Again!" + newTime);
+            TournamentManager.Log($"{tournamentName} --------------------> Notification Again!" + newTime);
             PlayerPrefs.SetString(Id, newTime.ToString());
 
             var notId = PlayerPrefs.GetString("SaveNotificationId_" + Id, "");
@@ -103,7 +115,7 @@ public class NotificationManager : MonoBehaviour
         {
             Id = id,
             Name = id,
-            Importance = Importance.Default,
+            Importance = Importance.High,
             Description = "Generic notifications",
         };
 
@@ -209,3 +221,5 @@ public class NotificationManager : MonoBehaviour
     }
 
 }
+
+
