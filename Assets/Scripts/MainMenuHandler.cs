@@ -483,6 +483,9 @@ public class MainMenuHandler : MonoBehaviour
     {
         tournamentScreen.GetComponent<Canvas>().enabled=NotificationManager.ShowTournamentPanel;
         NotificationManager.ShowTournamentPanel = false;
+
+        if(NotificationManager.ShowTournamentPanel)
+        TournamentNotificationPermission.Instance.Init();
     }
 
     //bool isDataGot;

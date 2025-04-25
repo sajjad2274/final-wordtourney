@@ -37,10 +37,25 @@ public class TournamentManager : MonoBehaviour
         StartCoroutine(CheckNewTournaments());
     }
 
-    // Call this when entering the tournament section
+    void ListAllDocuments(string collectionName)
+    {
+        return;
+
+        db.Collection(collectionName).Listen(snapshot =>
+        {
+            GameHandler.Instance.tournamentLevels = new List<TournamentLevels>();
+
+            // Convert IEnumerable<DocumentSnapshot> to List<DocumentSnapshot>
+            var documentsList = snapshot.Documents.ToList();
+
+            foreach (var document in documentsList) {
+                Debug.Log("collectionName " + document.Id);
+
+            }
 
 
-    // Fetch latest tournaments immediately
+        });
+    }
     private void FetchTournaments()
     {
 
@@ -99,16 +114,18 @@ public class TournamentManager : MonoBehaviour
     {
 
         yield return new WaitForSeconds(2f); // 5 minutes
-
-
-            FetchTournaments();
+                                             //    ListAllDocuments("Tournaments");
+        ListAllDocuments("Tournaments");
+        FetchTournaments();
 
         while (true)
         {
 
             yield return new WaitForSeconds(5); // 5 minutes
 
-                FetchTournaments();
+            FetchTournaments();
+            ListAllDocuments("Tournaments");
+
 
 
         }

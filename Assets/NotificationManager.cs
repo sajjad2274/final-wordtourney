@@ -30,12 +30,7 @@ public class NotificationManager : MonoBehaviour
     private void Start()
     {
 
-        #if UNITY_ANDROID && !UNITY_EDITOR
-        if (Permission.HasUserAuthorizedPermission("android.permission.POST_NOTIFICATIONS") == false)
-        {
-            Permission.RequestUserPermission("android.permission.POST_NOTIFICATIONS");
-        }
-#endif
+       
 
 
         AndroidNotificationCenter.OnNotificationReceived += OnNotificationReceived;
