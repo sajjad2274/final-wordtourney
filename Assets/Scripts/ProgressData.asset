@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: ProgressData
   m_EditorClassIdentifier: 
   levelCompleted: 0
-  tickets: 40
-  keys: 32
-  gems: 15
+  tickets: 0
+  keys: 0
+  gems: 0
   noAds: 0
   level: 1
   currentLevelPoints: 0
   requiredLevelPoints: 500
   currentRewardGiftPoints: 0
-  requiredRewardGiftPoints: 5
-  commonButterfly: 2
+  requiredRewardGiftPoints: 0
+  commonButterfly: 0
   goldenButterfly: 0
   legendaryButterfly: 0
   hammer: 0
@@ -30,18 +30,18 @@ MonoBehaviour:
   fireCracker: 0
   tournamentUnlockLevel: 0
   playerProfilePic: 
-  userCountry: Pakistan
+  userCountry: 
   userEmail: 
-  userGender: MALE
-  spinWheelLastDate: 11/23/2024 2:40:13 PM
-  spinWheelCount: 1
-  freeSpinWheel: 1
+  userGender: 
+  spinWheelLastDate: 
+  spinWheelCount: 0
+  freeSpinWheel: 0
   invite1RewardGot: 0
   invite2RewardGot: 0
   invite3RewardGot: 0
   invites: 0
-  paypalWithDrawAmount: 5
+  paypalWithDrawAmount: 0
   wordsFound: 
-  wonTournament: 1
+  wonTournament: 0
   failedTournament: 0
-  playedTournament: 1
+  playedTournament: 0

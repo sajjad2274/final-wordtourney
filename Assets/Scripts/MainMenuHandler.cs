@@ -90,6 +90,7 @@ public class MainMenuHandler : MonoBehaviour
 
     [Space]
     [Header("Spin Wheel")]
+    public Button spinButton;
     [SerializeField] private Button[] uiSpinButton;
     //Animator Wheel
     [SerializeField] string[] animatorWheelTriggers;
@@ -635,7 +636,7 @@ public class MainMenuHandler : MonoBehaviour
     }
     public void CheckSpinWheelTime()
     {
-        if (DateTime.TryParse(progressData.spinWheelLastDate, out spinWheelLastDateTime))
+        if (progressData.spinWheelLastDate != "" && DateTime.TryParse(progressData.spinWheelLastDate, out spinWheelLastDateTime))
         {
             if (DateTime.Now.Subtract(spinWheelLastDateTime).TotalHours > 24d)
             {
@@ -686,8 +687,16 @@ public class MainMenuHandler : MonoBehaviour
                 spinBtnAdObj.SetActive(true);
             }
         }
-        foreach (var v in spinWheelCountTxt) v.text = progressData.spinWheelCount.ToString();
+      
 
+    }
+
+    private void Update()
+    {
+        foreach (var v in spinWheelCountTxt)
+            v.text = progressData.spinWheelCount.ToString();
+
+        spinButton.interactable = !isSpinning && progressData.spinWheelCount > 0;
     }
     public void ToturialFinished()
     {
