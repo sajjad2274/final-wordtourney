@@ -121,7 +121,7 @@ public class TournamentManager : MonoBehaviour
         while (true)
         {
 
-            yield return new WaitForSeconds(5); // 5 minutes
+            yield return new WaitForSeconds(300); // 5 minutes
 
             FetchTournaments();
             ListAllDocuments("Tournaments");
