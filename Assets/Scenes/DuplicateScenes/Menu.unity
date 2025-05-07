@@ -145690,14 +145690,12 @@ MonoBehaviour:
   - {fileID: 7375806022617685922}
   - {fileID: 1631113019}
   animatorWheelTriggers:
+  - BlueDark
+  - BlueLight
   - Green
   - Orange
-  - Red
   - Pink
-  - BlueLight
-  - BlueDark
-  - Red
-  - Pink
+  - Purple
   animatorWheelResultNo: 0
   animatorWheelChances: 1e000000230000003c0000004100000050000000550000005f00000064000000
   animatorWheel: {fileID: 7070030869037649355}
@@ -145705,21 +145703,17 @@ MonoBehaviour:
   isSpinning: 0
   spinRewards:
   - rewardValue: 2
+    rewardType: gem
+  - rewardValue: 10
+    rewardType: key
+  - rewardValue: 2
     rewardType: key
   - rewardValue: 100
-    rewardType: gem
-  - rewardValue: 200
     rewardType: gem
   - rewardValue: 4
     rewardType: key
   - rewardValue: 10
     rewardType: key
-  - rewardValue: 2
-    rewardType: gem
-  - rewardValue: 4
-    rewardType: gem
-  - rewardValue: 2
-    rewardType: cash
   spinWheelParticles: {fileID: 724775609}
   spinBtnAdObj: {fileID: 1429277598}
   spinRewardPanel: {fileID: 1621189745}

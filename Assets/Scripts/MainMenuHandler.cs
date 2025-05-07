@@ -1385,15 +1385,16 @@ public class MainMenuHandler : MonoBehaviour
         soundSpin.Play();
         isSpinning = true;
         animatorWheelResultNo = 0;
-        int num = UnityEngine.Random.Range(0, 100);
-        for (int i = 0; i < animatorWheelChances.Length; i++)
-        {
-            if (num < animatorWheelChances[i])
-            {
-                animatorWheelResultNo = i;
-                break;
-            }
-        }
+        int num = UnityEngine.Random.Range(0, animatorWheelTriggers.Length);
+        animatorWheelResultNo = num;
+        //for (int i = 0; i < animatorWheelChances.Length; i++)
+        //{
+        //    if (num < animatorWheelChances[i])
+        //    {
+        //        animatorWheelResultNo = i;
+        //        break;
+        //    }
+        //}
         animatorWheel.SetTrigger(animatorWheelTriggers[animatorWheelResultNo]);
         for (int i = 0; i < uiSpinButton.Length; i++)
         {
