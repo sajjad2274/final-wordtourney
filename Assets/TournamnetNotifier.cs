@@ -20,7 +20,6 @@ public class TournamnetNotifier : MonoBehaviour
         TournamentManager.Log("TournamnetNotifier Shown "+show);
         if (show)
         {
-            NotificationController.Instance.AddNotification("Tournament Started!");
         }
         notifyImage.SetActive(show);
     }

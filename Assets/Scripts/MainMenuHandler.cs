@@ -1840,7 +1840,7 @@ public class MainMenuHandler : MonoBehaviour
         FirebaseManager.Instance.dbf.Collection("Tournaments").GetSnapshotAsync().ContinueWithOnMainThread(snapshot =>
         {
             tournamentCreated = snapshot.Result.Documents.Count();
-            Debug.LogError("-------Tournament created: " + snapshot.Result.Documents);
+            Debug.LogError("-------Tournament created: " + snapshot.Result.Documents.Count());
             int tournamentNo = 0;
             foreach (var item in snapshot.Result.Documents)
             {
