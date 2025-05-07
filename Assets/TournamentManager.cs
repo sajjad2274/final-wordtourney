@@ -81,10 +81,11 @@ public class TournamentManager : MonoBehaviour
                         Log("Tournament Available: "+ tName);
                         if (PlayerPrefs.GetInt(tName+ "_isTournamentSectionOpen",0)==0)
                         {
-                            tournamentNofication.SetActive(true);
                             PlayerPrefs.SetInt(tName + "_isTournamentSectionOpen", 1);
                             if (!ActiveTournamentNames.Contains(tName))
                                ActiveTournamentNames.Add(tName);
+
+                            NotifyTournament?.Invoke(ActiveTournamentNames.Count > 0);
                         }
                     }
                     else
@@ -93,11 +94,12 @@ public class TournamentManager : MonoBehaviour
 
                         if (ActiveTournamentNames.Contains(tName))
                             ActiveTournamentNames.Remove(tName);
+
+                        NotifyTournament?.Invoke(ActiveTournamentNames.Count > 0);
+
                     }
 
-                    NotifyTournament?.Invoke(ActiveTournamentNames.Count > 0);
-
-
+                    //tournamentNofication.SetActive(ActiveTournamentNames.Count > 0);
                     NotificationManager.Instance.ScheduleTournamnetNotification(tName, startTime, endTime);
 
                 }
@@ -121,7 +123,7 @@ public class TournamentManager : MonoBehaviour
         while (true)
         {
 
-            yield return new WaitForSeconds(300); // 5 minutes
+            yield return new WaitForSeconds(5); // 5 minutes
 
             FetchTournaments();
             ListAllDocuments("Tournaments");

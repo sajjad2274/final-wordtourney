@@ -16,7 +16,7 @@ public class NotificationManager : MonoBehaviour
 
     public static bool ShowTournamentPanel = false;
 
-    private float ScheduleTimeOffset = -5;
+    private float ScheduleTimeOffset = -1;
 
 
 

@@ -6,7 +6,7 @@ public class GameProgressData : ScriptableObject
 {
     public int levelCompleted;
 
-  public int tickets;
+    public int tickets;
     public int keys;
     public int gems;
 
