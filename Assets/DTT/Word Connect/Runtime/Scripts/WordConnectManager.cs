@@ -291,6 +291,14 @@ namespace DTT.WordConnect
             Continued?.Invoke();
         }
 
+
+
+        public int LevelNo
+        {
+            get => PlayerPrefs.GetInt("LevelNoNew", 0);
+            set => PlayerPrefs.SetInt("LevelNoNew", value);
+        }
+
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
@@ -353,10 +361,22 @@ namespace DTT.WordConnect
             else
             {
                 GameHandler.Instance.progressData.wordsFound = "";
-                GooglesAdsController.Instance?.ShowInterstitialAd(() =>
+
+                var level = LevelNo;
+
+                if(level > 0 && LevelNo % 6 == 0)
+                {
+                    GooglesAdsController.Instance?.ShowInterstitialAd(() =>
+                    {
+                        Finish?.Invoke(results);
+                    });
+                }
+                else
                 {
                     Finish?.Invoke(results);
-                });
+                }
+                LevelNo++;
+
             }
 
           

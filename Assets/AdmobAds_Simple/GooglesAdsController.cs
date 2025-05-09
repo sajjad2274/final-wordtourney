@@ -29,6 +29,7 @@ public class GooglesAdsController : MonoBehaviour
 
     }
     public bool testIds;
+    public bool EnableAds=true;
     
     //public GameObject adIsComing;
 
@@ -115,6 +116,15 @@ public class GooglesAdsController : MonoBehaviour
             onComplete?.Invoke();
             return;
         }
+
+
+        if (!EnableAds)
+        {
+            onComplete?.Invoke();
+            return;
+        }
+
+
         _googleAdsInterstitialController?.ShowAd(onComplete);
     }
 
