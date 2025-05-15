@@ -70,3 +70,11 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+Assets/Firebase/Plugins/x86_64/FirebaseCppApp-11_6_0.bundle
+Assets/Firebase/Plugins/x86_64/FirebaseCppApp-11_6_0.bundle.meta
+Assets/Firebase/Plugins/x86_64/FirebaseCppRemoteConfig.bundle
+Assets/Firebase/Plugins/x86_64/FirebaseCppRemoteConfig.bundle.meta
+Assets/Firebase/Plugins/x86_64/FirebaseCppRemoteConfig.dll
+Assets/Firebase/Plugins/x86_64/FirebaseCppRemoteConfig.dll.meta
+Assets/Firebase/Plugins/x86_64/FirebaseCppRemoteConfig.so
+Assets/Firebase/Plugins/x86_64/FirebaseCppRemoteConfig.so.meta

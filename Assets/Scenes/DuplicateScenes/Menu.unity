@@ -179386,13 +179386,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 435773968}
     m_Modifications:
+    - target: {fileID: 1140092042844140011, guid: e70d543b5ddf6dd4e8a31595d2678f14, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1181317124044431246, guid: e70d543b5ddf6dd4e8a31595d2678f14, type: 3}
       propertyPath: m_Name
       value: Upper Bar Cash
       objectReference: {fileID: 0}
+    - target: {fileID: 1181317124044431246, guid: e70d543b5ddf6dd4e8a31595d2678f14, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1332569269495950010, guid: e70d543b5ddf6dd4e8a31595d2678f14, type: 3}
       propertyPath: endValueFloat
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410111251273793066, guid: e70d543b5ddf6dd4e8a31595d2678f14, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438838390617017976, guid: e70d543b5ddf6dd4e8a31595d2678f14, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3651253247925674543, guid: e70d543b5ddf6dd4e8a31595d2678f14, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

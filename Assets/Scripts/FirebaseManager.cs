@@ -22,6 +22,7 @@ using System.Net;
 using UnityEngine.SceneManagement;
 using UnityEngine.Android;
 using System.IO;
+using Firebase.RemoteConfig;
 
 
 
@@ -201,6 +202,22 @@ public class FirebaseManager : MonoBehaviour
         auth = FirebaseAuth.DefaultInstance;
         DBreference = FirebaseDatabase.DefaultInstance.RootReference;
         dbf = FirebaseFirestore.DefaultInstance;
+
+
+    
+
+        FirebaseRemoteConfig.DefaultInstance.FetchAsync(System.TimeSpan.Zero).ContinueWith(fetchTask =>
+        {
+            if (fetchTask.IsCompleted)
+            {
+                FirebaseRemoteConfig.DefaultInstance.ActivateAsync().ContinueWith(_ =>
+                {
+                    bool showAds = FirebaseRemoteConfig.DefaultInstance.GetValue("show_ads").BooleanValue;
+                    Debug.Log("Show Ads: " + showAds);
+                    GooglesAdsController.Instance.EnableAds = showAds;
+                });
+            }
+        });
 
         //FB.Init(() =>
         //{
