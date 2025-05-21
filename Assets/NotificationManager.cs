@@ -1,20 +1,17 @@
-using Firebase.Messaging;
-using Firebase.Extensions;
-using System.Collections;
-using UnityEngine;
+using System.Collections.Generic;
 using System;
 using Unity.Notifications.Android;
-using Firebase.Firestore;
-using Unity.VisualScripting;
-
+using System.Linq;
 using UnityEngine;
-using UnityEngine.Android;
 
 public class NotificationManager : MonoBehaviour
 {
     public static NotificationManager Instance;
 
     public static bool ShowTournamentPanel = false;
+    public bool saveNotifierStatus = false;
+
+    public List<NotificationContent> NotificationContents=new List<NotificationContent> ();
 
     private float ScheduleTimeOffset = -1;
 
@@ -30,25 +27,106 @@ public class NotificationManager : MonoBehaviour
     private void Start()
     {
 
-       
-
-
         AndroidNotificationCenter.OnNotificationReceived += OnNotificationReceived;
     }
 
+
+
+
+    private void Update()
+    {
+        if (NotificationContents == null || NotificationContents.Count == 0 || NotificationContents.Count < 5)
+            return;
+
+        DateTime currTime = DateTime.Now;
+        bool anyActive = false;
+        var activeTCount = 0;
+
+        for (int i = 0; i < NotificationContents.Count; i++)
+        {
+            var notification = NotificationContents[i];
+
+            notification.shouldSchedule = currTime < notification.NotificationScheduleTime;
+            notification.active = currTime >= notification.StartTime && currTime < notification.EndTime;
+
+            if (notification.active)
+            {
+                anyActive = true;
+
+                var show = false;
+                if (currTime >= notification.StartTime)
+                {
+                    TimeSpan diff = currTime - notification.StartTime;
+                    if (diff.Minutes < 1)
+                    {
+                        show = true;
+                    }
+
+                    if (show && !notification.GetAppUiNotificationStatus() || !notification.GetAppUiNotificationStatus())
+                    {
+                        notification.SetAppUiNotificationStatus(true);
+                        activeTCount++;
+                    }
+                }
+            }
+            else
+            {
+                notification.SetAppUiNotificationStatus(false);
+            }
+        }
+
+        if(activeTCount > 0)
+        {
+            NotificationController.Instance.AddNotification(activeTCount > 1 ? "Tournaments Started!": "Tournament Started!");
+            activeTCount = 0;
+        }
+
+        // Only update if status has changed
+        if (anyActive != saveNotifierStatus)
+        {
+            saveNotifierStatus = anyActive;
+        }
+    }
+
+
     public void ScheduleTournamnetNotification(string tournamentName, DateTime startTime, DateTime endTime)
     {
-        TournamentManager.Log($"{tournamentName}-> Start: {startTime}  -  End: {endTime}");
 
 
         var Id = tournamentName.ToLower() + "_channel";
-
-        var currTime = DateTime.Now;
-
         var newTime = startTime.AddMinutes(ScheduleTimeOffset);
 
 
+        NotificationContent match = NotificationContents
+            .FirstOrDefault(n => n.TournamentName.Equals(tournamentName, StringComparison.OrdinalIgnoreCase));
 
+        if (match != null)
+        {
+            match.TournamentName = tournamentName;
+            match.NotificationId = Id;
+         
+            match.startTimeString=startTime.ToString();
+            match.endTimeString=endTime.ToString();
+            match.notificationScheduleString=newTime.ToString();
+        }
+        else
+        {
+            var notificationContent = new NotificationContent();
+            notificationContent.TournamentName = tournamentName;
+            notificationContent.NotificationId = Id;
+            notificationContent.startTimeString = startTime.ToString();
+            notificationContent.endTimeString = endTime.ToString();
+            notificationContent.notificationScheduleString = newTime.ToString();
+            NotificationContents.Add(notificationContent);
+        }
+
+
+
+
+
+
+        return;
+        var currTime = DateTime.Now;
 
         if (PlayerPrefs.GetString(Id, "") == "")
         {
@@ -146,13 +224,33 @@ public class NotificationManager : MonoBehaviour
             {
 
                 Debug.LogError(notificationIntent.Channel + "    Sadiq --------------------> Notification Clicked!" + notificationIntent.Notification.Title + "     " + notificationIntent.Id);
-
                 PlayerPrefs.SetString(notificationIntent.Channel.ToString(), "");
-
                 AndroidNotificationCenter.CancelNotification(notificationIntent.Id);
-                // Open your panel or take any action here
-
                 ShowTournamentPanel = true;
+                CancelAllNotifications();
+            }
+        }
+    }
+
+    private void OnApplicationQuit()
+    {
+        if (Application.isEditor)
+            return;
+
+        ScheduleNotifications();
+    }
+
+    private void ScheduleNotifications()
+    {
+        foreach (var notification in NotificationContents)
+        {
+
+            if (notification.shouldSchedule)
+            {
+                Debug.LogError($"Scheduled {notification.TournamentName} ");
+
+                ScheduleNotification(notification.NotificationId, notification.NotificationScheduleTime);
+                notification.shouldSchedule = false;
             }
         }
     }
@@ -160,9 +258,11 @@ public class NotificationManager : MonoBehaviour
 
     private void OnApplicationPause(bool pause)
     {
-        if (Application.isEditor)
-            return;
+        //if (Application.isEditor)
+        //    return;
 
+
+        ScheduleNotifications();
 
 
         //if (!pause)
@@ -179,6 +279,16 @@ public class NotificationManager : MonoBehaviour
         //}
     }
 
+
+
+
+    private void CancelAllNotifications()
+    {
+        AndroidNotificationCenter.CancelAllScheduledNotifications();
+        AndroidNotificationCenter.CancelAllDisplayedNotifications();
+    }
+
+   
     private void OnNotificationReceived(AndroidNotificationIntentData data)
     {
         if (data.Notification.ShowInForeground)
@@ -213,6 +323,40 @@ public class NotificationManager : MonoBehaviour
          //   ShowTournamentPanel = true;
             UnityEngine.Debug.Log("Sadiq---------->OpenPanel");
         }
+    }
+
+}
+
+[System.Serializable]
+public class NotificationContent
+{
+    public string TournamentName;
+    public string NotificationId;
+    public string startTimeString;
+    public string endTimeString;
+    public string notificationScheduleString;
+
+    public bool shouldSchedule;
+    public bool active;
+    public bool IsAppUiNotificationShown;
+
+
+    public DateTime StartTime => DateTime.Parse(startTimeString);
+    public DateTime EndTime => DateTime.Parse(endTimeString);
+    public DateTime NotificationScheduleTime => DateTime.Parse(notificationScheduleString);
+
+
+    public bool GetAppUiNotificationStatus()
+    {
+        IsAppUiNotificationShown = PlayerPrefs.GetInt($"{TournamentName}-InAppUiNotificationShown", 0) == 1;
+        return IsAppUiNotificationShown;
+    }
+
+    public void SetAppUiNotificationStatus(bool value)
+    {
+        IsAppUiNotificationShown = value;
+        PlayerPrefs.SetInt($"{TournamentName}-InAppUiNotificationShown", value ? 1 : 0);
+
     }
 
 }

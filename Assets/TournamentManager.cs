@@ -11,13 +11,11 @@ public class TournamentManager : MonoBehaviour
 {
     public static TournamentManager Instance;
     public string[] AllTournamentNames;
-    public List<string> ActiveTournamentNames = new List<string>();
 
 
     private FirebaseFirestore db;
     public GameObject tournamentNofication;
 
-    public static Action<bool> NotifyTournament; 
 
     private void Awake()
     {
@@ -27,8 +25,6 @@ public class TournamentManager : MonoBehaviour
 
         foreach (var tName in AllTournamentNames)
             PlayerPrefs.SetInt(tName + "_isTournamentSectionOpen", 0);
-
-
     }
 
     void Start()
@@ -71,7 +67,6 @@ public class TournamentManager : MonoBehaviour
                     var startTime = data["StartDate"].ConvertTo<Timestamp>().ToDateTime().ToLocalTime();
                     var endTime = data["EndDate"].ConvertTo<Timestamp>().ToDateTime().ToLocalTime();
 
-
                     //Debug.LogError(endTime + "Tournament Available" + DateTime.Now);
 
                     var currTime = DateTime.Now;
@@ -83,22 +78,13 @@ public class TournamentManager : MonoBehaviour
                         {
                             PlayerPrefs.SetInt(tName + "_isTournamentSectionOpen", 1);
 
-                            NotificationController.Instance.AddNotification("Tournament Started!");
-
-                            if (!ActiveTournamentNames.Contains(tName))
-                               ActiveTournamentNames.Add(tName);
-
                         }
                     }
                     else
                     {
-                        PlayerPrefs.SetInt(tName + "_isTournamentSectionOpen", 0);
-
-                        if (ActiveTournamentNames.Contains(tName))
-                            ActiveTournamentNames.Remove(tName);
+                        PlayerPrefs.SetInt(tName + "_isTournamentSectionOpen", 0);               
                     }
 
-                    NotifyTournament?.Invoke(ActiveTournamentNames.Count > 0);
                     //tournamentNofication.SetActive(ActiveTournamentNames.Count > 0);
                     NotificationManager.Instance.ScheduleTournamnetNotification(tName, startTime, endTime);
 

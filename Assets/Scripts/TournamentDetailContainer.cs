@@ -118,6 +118,7 @@ public class TournamentDetailContainer : MonoBehaviour
             this.gameObject.SetActive(false);
             FirebaseManager.Instance.DeleteDocument(tNameVar);
         }
+        this.gameObject.SetActive(true);
 
     }
 

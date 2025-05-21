@@ -6,21 +6,20 @@ public class TournamnetNotifier : MonoBehaviour
 {
     public GameObject notifyImage;
     public GameObject notifyImageMatched;
-    private void OnEnable()
+
+
+    private void Update()
     {
-        TournamentManager.NotifyTournament += NotifyTournament;
+        if (NotificationManager.Instance != null)
+        {
+            NotifyTournament(NotificationManager.Instance.saveNotifierStatus);
+        }
     }
-    private void OnDisable()
-    {
-        TournamentManager.NotifyTournament -= NotifyTournament;
-    }
+
 
     private void NotifyTournament(bool show)
     {
-        TournamentManager.Log("TournamnetNotifier Shown "+show);
-        if (show)
-        {
-        }
+     
         notifyImage.SetActive(show);
     }
 
