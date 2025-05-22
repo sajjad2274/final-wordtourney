@@ -7,6 +7,7 @@ using Newtonsoft.Json.Linq;
 using DTT.WordConnect;
 using Gley.Localization;
 
+[DefaultExecutionOrder(-10)]
 public class GameHandler : MonoBehaviour
 {
     public static GameHandler Instance;
