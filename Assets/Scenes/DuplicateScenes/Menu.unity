@@ -174054,8 +174054,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3709135980128558557, guid: bb0335f08cbd3a44cbc586af326266dc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1843784911136170879}
   m_SourcePrefab: {fileID: 100100000, guid: bb0335f08cbd3a44cbc586af326266dc, type: 3}
+--- !u!1 &1843784911136170878 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3709135980128558557, guid: bb0335f08cbd3a44cbc586af326266dc, type: 3}
+  m_PrefabInstance: {fileID: 1843784911136170877}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1843784911136170879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843784911136170878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 136e3762cffd61149a1818d04f93ba50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tournamentDetails: []
 --- !u!222 &1877905413593071485
 CanvasRenderer:
   m_ObjectHideFlags: 0

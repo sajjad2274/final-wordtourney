@@ -54,6 +54,7 @@ public class SplashHandler : MonoBehaviour
             }
         }
       
+
         warningLoginText.text = "Connecting to Server";
         Task task = FirebaseManager.Instance.LoadData();
 

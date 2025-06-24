@@ -1872,6 +1872,7 @@ public class MainMenuHandler : MonoBehaviour
 
                             if (document.Id == "Country")
                             {
+                                Debug.Log("Sadiq----------------------------------------------" + document.Id);
                                 t.CheckCountries(data);
                             }
                             else if (document.Id == "Players")

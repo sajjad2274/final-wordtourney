@@ -35,6 +35,7 @@ public class TournamentManager : MonoBehaviour
 
     void ListAllDocuments(string collectionName)
     {
+        TournamentDetailsController.Instance.ListAllDocuments(AllTournamentNames);
         return;
 
         db.Collection(collectionName).Listen(snapshot =>
@@ -112,10 +113,8 @@ public class TournamentManager : MonoBehaviour
             yield return new WaitForSeconds(5); // 5 minutes
 
             FetchTournaments();
-            ListAllDocuments("Tournaments");
             MainMenuHandler.Instance?.StartFireStore();
-
-
+            TournamentDetailsController.Instance.UpdateData();
 
         }
     }
