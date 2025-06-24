@@ -446,13 +446,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb92ba7f925b1e541823137bb6c14275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AllTournamentNames:
-  - Beginner
-  - Tournament #1
-  - Tournament #2
-  - Tournament #3
-  - Tournament #5
-  isTournamentSectionOpen: 0
+  AllTournamentDetails:
+  - Id: Beginner
+    Container: {fileID: 0}
+  - Id: Tournament #1
+    Container: {fileID: 0}
+  - Id: Tournament #2
+    Container: {fileID: 0}
+  - Id: Tournament #3
+    Container: {fileID: 0}
+  - Id: Tournament #5
+    Container: {fileID: 0}
   tournamentNofication: {fileID: 9063996064288218998}
 --- !u!1 &9063996064288218998
 GameObject:

@@ -200,10 +200,10 @@ public class TournamentDetailContainer : MonoBehaviour
     }
     public void OnHandleClick()
     {
-
+        Debug.LogError(GameHandler.Instance.countryName + "Sadiq -------------------------" + !countries.Contains(GameHandler.Instance.countryName));
         if (!countries.Contains(GameHandler.Instance.countryName))
         {
-            MainMenuHandler.Instance.countryNotAllowedPanel.SetActive(true);
+            MainMenuHandler.Instance.countryNotAllowedPanel.GetComponent<Canvas>().enabled=true;
         }
         else if (!players.ContainsKey(FirebaseManager.Instance.User.UserId))
         {

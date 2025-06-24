@@ -13,61 +13,52 @@ public class TournamentDetailsController : MonoBehaviour
         Instance = this;
     }
 
-    public List<TournamentDetail> tournamentDetails=new List<TournamentDetail>();
+   // public List<TournamentDetail> tournamentDetails=new List<TournamentDetail>();
 
 
-    public void ListAllDocuments(string[] allTournamentsName)
-    {
-        tournamentDetails.Clear();
-        foreach (var item in allTournamentsName)
-        {
-            var data = new TournamentDetail();
-            data.id = item;
-            tournamentDetails.Add(data);
-        }
+    //public void ListAllDocuments(string[] allTournamentsName)
+    //{
+    //    tournamentDetails.Clear();
+    //    foreach (var item in allTournamentsName)
+    //    {
+    //        var data = new TournamentDetail();
+    //        data.id = item;
+    //        tournamentDetails.Add(data);
+    //    }
   
-    }
+    //}
     public void UpdateData()
     {
-        var dbf = FirebaseManager.Instance.dbf;
-        foreach (var item in tournamentDetails)
-        {
+        //var dbf = FirebaseManager.Instance.dbf;
+        //foreach (var item in tournamentDetails)
+        //{
 
-        dbf.Collection("Tournaments").Document(item.id).Collection("Detail").GetSnapshotAsync().ContinueWithOnMainThread(task =>
-        {
-            if (task.IsCompleted && !task.IsFaulted)
-            {
-                QuerySnapshot snapshot = task.Result;
-                foreach (DocumentSnapshot document in snapshot.Documents)
-                {
-                    Dictionary<string, object> data = document.ToDictionary();
+        //dbf.Collection("Tournaments").Document(item.id).Collection("Detail").GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        //{
+        //    if (task.IsCompleted && !task.IsFaulted)
+        //    {
+        //        QuerySnapshot snapshot = task.Result;
+        //        foreach (DocumentSnapshot document in snapshot.Documents)
+        //        {
+        //            Dictionary<string, object> data = document.ToDictionary();
 
-                    if (document.Id == "Country")
-                    {
-                        Debug.Log("New Sadiq----------------------------------------------" + document.Id);
-                        item.countries = new List<string>();
-                        foreach (KeyValuePair<string, object> kvp in data)
-                        {
-                            item.countries.Add(kvp.Key);
-                        }
-                    }
-                }
+        //            if (document.Id == "Country")
+        //            {
+        //                Debug.Log("New Sadiq----------------------------------------------" + document.Id);
+        //                item.countries = new List<string>();
+        //                foreach (KeyValuePair<string, object> kvp in data)
+        //                {
+        //                    item.countries.Add(kvp.Key);
+        //                }
+        //            }
+        //        }
 
-                }
+        //        }
 
-        });
-        }
+        //});
+        //}
 
     }
 }
 
-
-[System.Serializable]
-public class TournamentDetail
-{
-    public string id;
-    public List<string> countries =new List<string>();
-    public string startDate;
-    public string endDate; 
-}
 

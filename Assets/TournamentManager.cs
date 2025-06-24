@@ -10,7 +10,8 @@ using System.Collections.Generic;
 public class TournamentManager : MonoBehaviour
 {
     public static TournamentManager Instance;
-    public string[] AllTournamentNames;
+    public List<TournamnetDetail> AllTournamentDetails= new List<TournamnetDetail>();
+
 
 
     private FirebaseFirestore db;
@@ -23,7 +24,7 @@ public class TournamentManager : MonoBehaviour
 
         DontDestroyOnLoad(this);
 
-        foreach (var tName in AllTournamentNames)
+        foreach (var tName in AllTournamentDetails)
             PlayerPrefs.SetInt(tName + "_isTournamentSectionOpen", 0);
     }
 
@@ -35,7 +36,7 @@ public class TournamentManager : MonoBehaviour
 
     void ListAllDocuments(string collectionName)
     {
-        TournamentDetailsController.Instance.ListAllDocuments(AllTournamentNames);
+      //  TournamentDetailsController.Instance.ListAllDocuments(AllTournamentDetails);
         return;
 
         db.Collection(collectionName).Listen(snapshot =>
@@ -56,9 +57,9 @@ public class TournamentManager : MonoBehaviour
     private void FetchTournaments()
     {
 
-        foreach (var tName in AllTournamentNames)
+        foreach (var tName in AllTournamentDetails)
         {
-            db.Collection("Tournaments").Document(tName).Collection("Detail").Document("PrimaryDetail").GetSnapshotAsync().ContinueWithOnMainThread(task =>
+            db.Collection("Tournaments").Document(tName.Id).Collection("Detail").Document("PrimaryDetail").GetSnapshotAsync().ContinueWithOnMainThread(task =>
             {
                 if (task.IsCompleted && !task.IsFaulted)
                 {
@@ -87,7 +88,7 @@ public class TournamentManager : MonoBehaviour
                     }
 
                     //tournamentNofication.SetActive(ActiveTournamentNames.Count > 0);
-                    NotificationManager.Instance.ScheduleTournamnetNotification(tName, startTime, endTime);
+                    NotificationManager.Instance.ScheduleTournamnetNotification(tName.Id, startTime, endTime);
 
                 }
                 else
@@ -116,6 +117,11 @@ public class TournamentManager : MonoBehaviour
             MainMenuHandler.Instance?.StartFireStore();
             TournamentDetailsController.Instance.UpdateData();
 
+            for (int i = 0; i < AllTournamentDetails.Count; i++)
+            {
+                AllTournamentDetails[i].Container.transform.SetSiblingIndex(i);
+            }
+
         }
     }
 
@@ -126,6 +132,14 @@ public class TournamentManager : MonoBehaviour
         Debug.Log(log);
     }
 
+
+}
+
+[System.Serializable]
+public class TournamnetDetail
+{
+    public string Id;
+    public TournamentDetailContainer Container;
 
 }
 

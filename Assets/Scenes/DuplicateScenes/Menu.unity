@@ -31762,7 +31762,6 @@ RectTransform:
   - {fileID: 1037971262}
   - {fileID: 1706697405}
   - {fileID: 159389820}
-  - {fileID: 1705508571}
   - {fileID: 54387889}
   - {fileID: 272246652}
   - {fileID: 1854211703}
@@ -31781,6 +31780,7 @@ RectTransform:
   - {fileID: 521535849}
   - {fileID: 1472017227}
   - {fileID: 222369778}
+  - {fileID: 1705508571}
   - {fileID: 1200019385}
   - {fileID: 324717562}
   - {fileID: 467926270}
@@ -174076,7 +174076,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136e3762cffd61149a1818d04f93ba50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tournamentDetails: []
 --- !u!222 &1877905413593071485
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -18,6 +18,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DG.Tweening;
 using System.Text.RegularExpressions;
+using UnityEditor.VersionControl;
 //using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 
@@ -1824,179 +1825,165 @@ public class MainMenuHandler : MonoBehaviour
         }
     }
     #endregion
+
+    private TournamentDetailContainer GenerateTournamentDetailContainer(TournamnetDetail item)
+    {
+        TournamentDetailContainer t = new TournamentDetailContainer();
+
+        if (tournamentDetailContainers.ContainsKey(item.Id))
+        {
+            t = tournamentDetailContainers[item.Id];
+        }
+        else
+        {
+
+            t = Instantiate(tournamentPrefab, tournamentTypes[0].tournamentContainerParent).GetComponent<TournamentDetailContainer>();
+            tournamentDetailContainers.Add(item.Id, t);
+
+            var itemRef = item;
+            t.gameObject.name = itemRef.Id;
+            itemRef.Container = t;
+            item = itemRef;
+        }
+
+        return t;
+    }
     public void StartFireStore()
     {
-        //tournamentDetailContainers = new Dictionary<string, TournamentDetailContainer>();
-        //for (int i = tournamentContainerParent.childCount - 1; i >= 0; i--)
-        //{
-        //    Destroy(tournamentContainerParent.GetChild(0).gameObject);
-        //}
-        //tournamentDetailContainers.Clear();
         foreach (ListenerRegistration l in ld)
         {
             l.Stop();
         }
         ld.Clear();
-        FirebaseManager.Instance.dbf.Collection("Tournaments").GetSnapshotAsync().ContinueWithOnMainThread(snapshot =>
+
+
+        foreach (var item in TournamentManager.Instance.AllTournamentDetails)
         {
-            tournamentCreated = snapshot.Result.Documents.Count();
-            Debug.LogError("-------Tournament created: " + snapshot.Result.Documents.Count());
             int tournamentNo = 0;
-            foreach (var item in snapshot.Result.Documents)
+
+            FirebaseManager.Instance.dbf.Collection("Tournaments").Document(item.Id).GetSnapshotAsync().ContinueWithOnMainThread(tournament =>
             {
-                TournamentDetailContainer t = new TournamentDetailContainer();
-                if (tournamentDetailContainers.ContainsKey(item.Id))
-                {
-                    t = tournamentDetailContainers[item.Id];
-                }
-                else
-                {
-
-                    t = Instantiate(tournamentPrefab, tournamentTypes[0].tournamentContainerParent).GetComponent<TournamentDetailContainer>();
-                    tournamentDetailContainers.Add(item.Id, t);
-                }
-
                 int tNoNew = tournamentNo;
-                Debug.LogError("-------Tournament created: " + tNoNew);
-                item.Reference.Collection("Detail").GetSnapshotAsync().ContinueWithOnMainThread(task =>
+
+                var t = GenerateTournamentDetailContainer(item);
+
+                DocumentSnapshot TSnapshot = tournament.Result;
+                TournamentPlayerData tp = new TournamentPlayerData();
+                DocumentSnapshot PlayersListener = null;
+
+                TSnapshot.Reference.Collection("Detail").GetSnapshotAsync().ContinueWithOnMainThread(task =>
                 {
-                    if (task.IsCompleted)
+                    var detailSnap = task.Result;
+                    foreach (var document in detailSnap.Documents)
+                    {
+                        Dictionary<string, object> data = document.ToDictionary();
+                        if (document.Id == "Country")
+                        {
+                            t.CheckCountries(data);
+                        }
+                        else if (document.Id == "Players")
+                        {
+                            PlayersListener = document;
+
+                            if (data.ContainsKey(FirebaseManager.Instance.User.UserId))
+                            {
+                                tp = new TournamentPlayerData(JsonConvert.DeserializeObject<TournamentPlayerData>(data[FirebaseManager.Instance.User.UserId].ToString()));
+                            }
+
+                            t.CheckPlayers(data);
+                        }
+                        else if (document.Id == "PrimaryDetail")
+                        {
+                            t.tournamentPrizeDistributionCount = data["TournamentPrizeDistributionCount"].ConvertTo<int>();
+
+                            TournamentTypes tType = tournamentTypes.Find(t => t.typeName == data["Type"].ConvertTo<string>());
+                            if (tType != null)
+                            {
+                                t.transform.parent = tType.tournamentContainerParent;
+                                t.bgImg.sprite = tType.tournamentPrefabSprite;
+                            }
+
+                            t.SaveDatail(data["EntryFee"].ConvertTo<int>(),
+                                data["Prize"].ConvertTo<int>(),
+                                item.Id,
+                                data["IsStarted"].ConvertTo<bool>(),
+                                data["EndDate"].ConvertTo<Timestamp>().ToDateTime().ToLocalTime(),
+                                data["PlayersReq"].ConvertTo<int>(),
+                                tNoNew, data["StartDate"].ConvertTo<Timestamp>().ToDateTime().ToLocalTime());
+                        }
+
+
+                    }
+                    if (PlayersListener != null)
                     {
 
-                        QuerySnapshot snapshot = task.Result;
-                        TournamentPlayerData tp = new TournamentPlayerData();
-                        DocumentSnapshot PlayersListener = null;
-                        foreach (DocumentSnapshot document in snapshot.Documents)
+                        ListenerRegistration lld = PlayersListener.Reference.Listen(task =>
                         {
-                            Dictionary<string, object> data = document.ToDictionary();
+                            Dictionary<string, object> data22 = task.ToDictionary();
 
-                            if (document.Id == "Country")
+                            if (data22.ContainsKey(FirebaseManager.Instance.User.UserId))
                             {
-                                Debug.Log("Sadiq----------------------------------------------" + document.Id);
-                                t.CheckCountries(data);
-                            }
-                            else if (document.Id == "Players")
-                            {
-                                PlayersListener = document;
 
-                                if (data.ContainsKey(FirebaseManager.Instance.User.UserId))
-                                {
-                                    tp = new TournamentPlayerData(JsonConvert.DeserializeObject<TournamentPlayerData>(data[FirebaseManager.Instance.User.UserId].ToString()));
-                                }
 
-                                t.CheckPlayers(data);
-                            }
-                            else if (document.Id == "PrimaryDetail")
-                            {
-                                t.tournamentPrizeDistributionCount = data["TournamentPrizeDistributionCount"].ConvertTo<int>();
-
-                                TournamentTypes tType = tournamentTypes.Find(t => t.typeName == data["Type"].ConvertTo<string>());
-                                if (tType != null)
-                                {
-                                    t.transform.parent = tType.tournamentContainerParent;
-                                    t.bgImg.sprite = tType.tournamentPrefabSprite;
-                                }
-
-                                t.SaveDatail(data["EntryFee"].ConvertTo<int>(),
-                                    data["Prize"].ConvertTo<int>(),
-                                    item.Id,
-                                    data["IsStarted"].ConvertTo<bool>(),
-                                    data["EndDate"].ConvertTo<Timestamp>().ToDateTime().ToLocalTime(),
-                                    data["PlayersReq"].ConvertTo<int>(),
-                                    tNoNew, data["StartDate"].ConvertTo<Timestamp>().ToDateTime().ToLocalTime());
-
+                                tp = new TournamentPlayerData(JsonConvert.DeserializeObject<TournamentPlayerData>(data22[FirebaseManager.Instance.User.UserId].ToString()));
 
                             }
-
-
-                        }
-                        if (PlayersListener != null)
-                        {
-
-                            ListenerRegistration lld = PlayersListener.Reference.Listen(task =>
-                            {
-                                Dictionary<string, object> data22 = task.ToDictionary();
-
-                                if (data22.ContainsKey(FirebaseManager.Instance.User.UserId))
-                                {
-
-
-                                    tp = new TournamentPlayerData(JsonConvert.DeserializeObject<TournamentPlayerData>(data22[FirebaseManager.Instance.User.UserId].ToString()));
-
-                                }
-                                t.leaderBoards.Clear();
-                                t.CheckPlayers(data22, true);
-                                StartLoadScoreboardDataTournament(t, (tp.playerID != "" ? tp : null));
-                            });
-                            ld.Add(lld);
-                        }
-                        else
-                        {
+                            t.leaderBoards.Clear();
+                            t.CheckPlayers(data22, true);
                             StartLoadScoreboardDataTournament(t, (tp.playerID != "" ? tp : null));
-                        }
-                        GetTournamentPrizes(t);
-                        if (t.counter.endDate.ToLocalTime() > DateTime.Now)
-                        {
-                            if (t.counter.endDate.ToLocalTime().Subtract(DateTime.Now).TotalMinutes < 60)
-                            {
-                                StartCoroutine(TournamentEnder(t.counter.endDate, t, (tp.playerID != "" ? tp : null)));
-                            }
-                        }
+                        });
+                        ld.Add(lld);
                     }
                     else
                     {
-
-                        Debug.LogError("Failed to get nested documents: " + task.Exception);
+                        StartLoadScoreboardDataTournament(t, (tp.playerID != "" ? tp : null));
                     }
+                    GetTournamentPrizes(t);
+                    if (t.counter.endDate.ToLocalTime() > DateTime.Now)
+                    {
+                        if (t.counter.endDate.ToLocalTime().Subtract(DateTime.Now).TotalMinutes < 60)
+                        {
+                            StartCoroutine(TournamentEnder(t.counter.endDate, t, (tp.playerID != "" ? tp : null)));
+                        }
+                    }
+
+
                     tournamentDataLoaded = true;
-                });
-                item.Reference.Collection("TournamentPrizeDistributionCategory").GetSnapshotAsync().ContinueWithOnMainThread(task =>
-                {
-                    if (task.IsCompleted)
-                    {
-                        t.TournamentPrizeDistributionCategory = new List<TournamentPrizes>();
-                        QuerySnapshot snapshot = task.Result;
 
-                        foreach (var vd in snapshot)
+                    FirebaseManager.Instance.LoadTournamentHistory();
+
+                });
+
+
+                TSnapshot.Reference.Collection("TournamentPrizeDistributionCategory").GetSnapshotAsync().ContinueWithOnMainThread(task => {
+
+                    var detailSnap = task.Result;
+
+                    t.TournamentPrizeDistributionCategory = new List<TournamentPrizes>();
+
+                    foreach (var vd in detailSnap.Documents)
+                    {
+
+                        TournamentPrizes tournamentPrizes = new TournamentPrizes();
+
+                        Dictionary<string, object> data2 = vd.ToDictionary();
+                        foreach (var pd in data2)
                         {
 
-                            TournamentPrizes tournamentPrizes = new TournamentPrizes();
-
-
-                            Dictionary<string, object> data2 = vd.ToDictionary();
-                            foreach (var pd in data2)
-                            {
-
-                                TournamentPrize tournamentPrize = new TournamentPrize();
-                                tournamentPrize.pValue = int.Parse(pd.Value.ToString());
-                                tournamentPrize.pType = pd.Key;
-                                tournamentPrizes.prize.Add(tournamentPrize);
-                            }
-
-                            t.TournamentPrizeDistributionCategory.Add(tournamentPrizes);
-
-
-
+                            TournamentPrize tournamentPrize = new TournamentPrize();
+                            tournamentPrize.pValue = int.Parse(pd.Value.ToString());
+                            tournamentPrize.pType = pd.Key;
+                            tournamentPrizes.prize.Add(tournamentPrize);
                         }
 
-
+                        t.TournamentPrizeDistributionCategory.Add(tournamentPrizes);
                     }
-                    else
-                    {
-
-                        Debug.LogError("Failed to get nested documents: " + task.Exception);
-                    }
-
                 });
-
-
-            }
-
-
-            FirebaseManager.Instance.LoadTournamentHistory();
+                 
         });
 
-        // GetData();
+          
+        }
     }
 
     public void SavePrizeValues(TournamentDetailContainer td2, DateTime endTime)
