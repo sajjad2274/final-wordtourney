@@ -115,10 +115,10 @@ public class TournamentDetailContainer : MonoBehaviour
         //tempDate = tempDate.AddMinutes(3);
         if (DateTime.Now >= tempDate)
         {
-            this.gameObject.SetActive(false);
-            FirebaseManager.Instance.DeleteDocument(tNameVar);
+          //  this.gameObject.SetActive(false);
+           // FirebaseManager.Instance.DeleteDocument(tNameVar);
         }
-        this.gameObject.SetActive(true);
+
 
     }
 
@@ -196,6 +196,10 @@ public class TournamentDetailContainer : MonoBehaviour
         if (!countries.Contains(GameHandler.Instance.countryName))
         {
             this.gameObject.SetActive(false);
+        }
+        else
+        {
+            this.gameObject.SetActive(true);
         }
     }
     public void OnHandleClick()

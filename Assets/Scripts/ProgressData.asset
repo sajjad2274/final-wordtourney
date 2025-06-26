@@ -21,7 +21,7 @@ MonoBehaviour:
   currentLevelPoints: 0
   requiredLevelPoints: 500
   currentRewardGiftPoints: 0
-  requiredRewardGiftPoints: 0
+  requiredRewardGiftPoints: 5
   commonButterfly: 0
   goldenButterfly: 0
   legendaryButterfly: 0

@@ -115,10 +115,10 @@ public class TournamentManager : MonoBehaviour
 
             FetchTournaments();
             MainMenuHandler.Instance?.StartFireStore();
-            TournamentDetailsController.Instance.UpdateData();
 
             for (int i = 0; i < AllTournamentDetails.Count; i++)
             {
+                if (AllTournamentDetails[i].Container != null)
                 AllTournamentDetails[i].Container.transform.SetSiblingIndex(i);
             }
 
