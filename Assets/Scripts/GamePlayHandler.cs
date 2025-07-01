@@ -1141,6 +1141,11 @@ public class GamePlayHandler : MonoBehaviour
             pn.SetActive(val);
         panelopenRoutine = null;
     }
+
+    public void _OpenPaypalScreen()
+    {
+OpenPanel(MainMenuHandler.Instance.payPalPanel);
+    }
     IEnumerator ClosePanel(GameObject pn, bool val)
     {
         yield return new WaitForSeconds(panelOpenCloseTime);
