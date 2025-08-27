@@ -1052,19 +1052,19 @@ public class FirebaseManager : MonoBehaviour
         if (DBTask4.Exception != null)
         {
 
-            MainMenuHandler.Instance.payPalAmountInputFieldResultDetail.text = ("error");
-            MainMenuHandler.Instance.payoutInProgress = false;
+            PayPalManager.Instance.payPalAmountInputFieldResultDetail.text = ("error");
+            PayPalManager.Instance.payoutInProgress = false;
         }
         else
         {
-            MainMenuHandler.Instance.payPalAmountInputFieldResultDetail.text = ("transaction done!\n waiting for approval");
+            PayPalManager.Instance.payPalAmountInputFieldResultDetail.text = ("transaction done!\n waiting for approval");
             progressData.tickets -= cpaymant;
             SaveProgressData();
             UpdatePayPalData(User.UserId + PayPalRequestsCount.ToString() + PayPalRequestsCount2.ToString(), _cash);
             MainMenuHandler.Instance.GetPayPalHistory(User.UserId + PayPalRequestsCount.ToString() + PayPalRequestsCount2.ToString(), _cash, false);
             //Application.OpenURL(data.Links[0].Href);
             // StartCoroutine(GetPayerID(data.Links[0].Href, accessToken));
-            MainMenuHandler.Instance.payoutInProgress = false;
+            PayPalManager.Instance.payoutInProgress = false;
             MainMenuHandler.Instance.UpdateTxts();
         }
     }

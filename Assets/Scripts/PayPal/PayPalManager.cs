@@ -5,7 +5,7 @@ using System.Text;
 
 using UnityEngine;
 using UnityEngine.Networking;
-
+using UnityEngine.UI;
 using static Paypal.Model.Order;
 using static Paypal.Payout.Order;
 public enum PayPalMehtod
@@ -15,12 +15,34 @@ public enum PayPalMehtod
 }
 public class PayPalManager : MonoBehaviour
 {
+    public static PayPalManager Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+        payoutInProgress = false;
+
+
+    }
+    [Space]
+    public PayPalMehtod payPalMehtod;
+    public Text payPalAmountInputFieldResultDetail;
+    public bool payoutInProgress;
+
+    [Space(20)]
+
     [SerializeField] GameProgressData progressData;
     [SerializeField] MainMenuHandler mainMenuHandler;
     [SerializeField]TextAsset[] jsonStrings;
     [SerializeField] PayPalPaymentCreation paymentDetail;
     [SerializeField] PayOutRoot payoutDetail;
     [SerializeField] CreatePayoutResponse payoutResponse;
+
+
+  
+
+
+    
     #region Credentials
     [SerializeField]
     string _clientID = "Ad2gQettf7zTXTK4W1iBadI5MR0Sno3HyPwgxqlfksBU9N02kh2Y7_bGxBth_a8wkqlrhyVRqR_30hiL";
@@ -175,7 +197,7 @@ public class PayPalManager : MonoBehaviour
             yield return request.SendWebRequest();
             if (request.isNetworkError || !string.IsNullOrEmpty(request.error))
             {
-                mainMenuHandler.payPalAmountInputFieldResultDetail.text = request.downloadHandler.text;
+                payPalAmountInputFieldResultDetail.text= request.downloadHandler.text;
                 Debug.LogError(request.downloadHandler.text);
             }
             else
@@ -186,17 +208,19 @@ public class PayPalManager : MonoBehaviour
                 var data = JsonUtility.FromJson<Paypal.Model.ExecuteResponse>(request.downloadHandler.text);
                
                 Debug.Log("Order Completed:" + data.state);
-                if(mainMenuHandler.payPalMehtod==PayPalMehtod.cashin)
+                if(payPalMehtod==PayPalMehtod.cashin)
                 {
                     progressData.tickets += (int)currentPayment;
-                    mainMenuHandler.payPalAmountInputFieldResultDetail.text = "Order Completed:" + data.state;
+                    payPalAmountInputFieldResultDetail.text = "Order Completed:" + data.state;
+
                 }
-              else if (mainMenuHandler.payPalMehtod == PayPalMehtod.cashout)
+              else if (payPalMehtod == PayPalMehtod.cashout)
                 {
                     progressData.tickets -= (int)currentPayment;
-                    mainMenuHandler.payPalAmountInputFieldResultDetail.text = "Order Completed:" + data.state;
+                   
+                    payPalAmountInputFieldResultDetail.text = "Order Completed:" + data.state;
                 }
-                mainMenuHandler.UpdateTxts();
+                MainMenuHandler.Instance.UpdateTxts();
                 FirebaseManager.Instance.SaveProgressData();
             }
 
@@ -225,8 +249,8 @@ public class PayPalManager : MonoBehaviour
             if (request.isNetworkError || !string.IsNullOrEmpty(request.error))
             {
                 Debug.LogError(request.downloadHandler.text);
-                mainMenuHandler.payPalAmountInputFieldResultDetail.text = ("error");
-                mainMenuHandler.payoutInProgress = false;
+                payPalAmountInputFieldResultDetail.text = ("error");
+                payoutInProgress = false;
             }
             else
             {
@@ -264,23 +288,25 @@ public class PayPalManager : MonoBehaviour
         {
             Debug.LogError(request.downloadHandler.text);
             Debug.LogError(request.error);
-            mainMenuHandler.payPalAmountInputFieldResultDetail.text = ("error");
-            mainMenuHandler.payoutInProgress = false;
+            payPalAmountInputFieldResultDetail.text = ("error");
+            payoutInProgress = false;
         }
         else
         {
             CreatePayoutResponse data = JsonUtility.FromJson<CreatePayoutResponse>(request.downloadHandler.text);
             payoutResponse = data;
             Debug.Log(request.downloadHandler.text);
-            if (data!=null)mainMenuHandler.payPalAmountInputFieldResultDetail.text=("transaction done!\n waiting for approval\n"+data.batch_header.batch_status);
-            progressData.tickets -= (int)currentPayment;
+            if (data != null)
+            {
+                payPalAmountInputFieldResultDetail.text = ("transaction done!\n waiting for approval\n" + data.batch_header.batch_status);
+            } progressData.tickets -= (int)currentPayment;
             FirebaseManager.Instance.SaveProgressData();
             FirebaseManager.Instance.UpdatePayPalData(payOutRoot.sender_batch_header.sender_batch_id, currentPayment.ToString());
             mainMenuHandler.GetPayPalHistory(payOutRoot.sender_batch_header.sender_batch_id, currentPayment.ToString(),false);
             //Application.OpenURL(data.Links[0].Href);
             // StartCoroutine(GetPayerID(data.Links[0].Href, accessToken));
-            mainMenuHandler.payoutInProgress = false;
-            mainMenuHandler.UpdateTxts();
+            payoutInProgress = false;
+            MainMenuHandler.Instance.UpdateTxts();
         }
     }
     #endregion

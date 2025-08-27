@@ -251,12 +251,11 @@ public class MainMenuHandler : MonoBehaviour
     public PayPalManager payPalManager;
     public InputField payPalAmountInputField;
     public InputField payPalEmailInputField;
-    public Text payPalAmountInputFieldResultDetail;
+    private Text payPalAmountInputFieldResultDetail;
     public PayPalMehtod payPalMehtod;
     public GameObject payPalPaymentPanel;
     public GameObject paypalHistoryElement;
     public Transform paypalHistoryContent;
-    [HideInInspector] public bool payoutInProgress;
 
     [Space]
     [Header("Main Panel")]
@@ -302,7 +301,6 @@ public class MainMenuHandler : MonoBehaviour
         Instance = this;
         // VideoPlayerCompleted(vp);
         tournamentRewardPrizes = new List<TournamentRewards>();
-        payoutInProgress = false;
         //if (vp.isPrepared && vp.isPlaying)
         //{
         //    LoadingBg.GetComponent<Image>().DOFade(0, 2f);
@@ -1758,7 +1756,7 @@ public class MainMenuHandler : MonoBehaviour
             {
                 payPalAmountInputFieldResultDetail.text = "Enter Email";
             }
-            else if (payoutInProgress)
+            else if (PayPalManager.Instance.payoutInProgress)
             {
 
                 payPalAmountInputFieldResultDetail.text = "Old Request In Progress";
@@ -1774,7 +1772,7 @@ public class MainMenuHandler : MonoBehaviour
             }
             else
             {
-                payoutInProgress = true;
+                PayPalManager.Instance.payoutInProgress = true;
                 payPalManager.currentPayment = progressData.tickets;
                 payPalManager.currentReciever = payPalEmailInputField.text;
                 payPalManager.StartPayout();
